@@ -239,7 +239,8 @@ window.addEventListener("beforeunload", () => {
 // pc
 @media screen and (min-width: 768px) {
   .music-disc {
-    bottom: 50px;
+    bottom: 50%;
+    transform: translate(0, 50%);
     height: 60px;
     border-radius: 30px;
     min-width: 60px;

@@ -239,15 +239,15 @@ watch(
   .title {
     display: inline-block;
     width: 100%;
-    font-size: 1.6rem;
-    color: var(--font-color);
+    font-size: 1.8rem;
+    color: var(--title-font);
     font-weight: 600;
     line-height: 2.4;
     transition: 0.2s ease-in-out;
 
     &:hover {
       cursor: pointer;
-      color: var(--primary);
+      color: var(--second-font-color);
     }
   }
 

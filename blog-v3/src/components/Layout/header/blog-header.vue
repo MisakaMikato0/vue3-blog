@@ -108,7 +108,10 @@ onBeforeUnmount(() => {
     <div class="pc_menu flex_r_between">
       <div class="sub-avatar">
         <router-link v-if="getBlogAvatar" to="/"
-          ><el-avatar class="el-avatar" :src="getBlogAvatar" />
+          ><div class="left-header-logo">
+            <text class="logo-title">欢迎来到幻想乡！</text>
+            <el-avatar class="el-avatar" :src="getBlogAvatar" />
+          </div>
         </router-link>
         <MessageBox class="ml-[10px]" v-if="getUserInfo.id" :user-id="getUserInfo.id" type="pc" />
       </div>
@@ -119,13 +122,19 @@ onBeforeUnmount(() => {
           mode="horizontal"
           :default-active="getPath"
           :ellipsis="false"
-          menu-trigger="click"
+          menu-trigger="hover"
           @select="(val) => handleSelect(val, 'pc')"
         >
-          <el-menu-item index="/home"><i class="iconfont icon-home"></i> 主页</el-menu-item>
-          <el-menu-item index="/archives"><i class="iconfont icon-icon"></i> 时间轴</el-menu-item>
+          <el-menu-item index="/home"
+            ><i class="iconfont icon-home"></i> <span class="header-title">主页</span>
+          </el-menu-item>
+          <el-menu-item index="/archives"
+            ><i class="iconfont icon-icon"></i><span class="header-title">时间轴</span>
+          </el-menu-item>
           <el-sub-menu index="/resources">
-            <template #title><i class="iconfont icon-menu"></i> 更多</template>
+            <template #title
+              ><i class="iconfont icon-menu"></i><span class="header-title">更多</span>
+            </template>
             <!-- <el-menu-item index="/message/chat"
               ><i class="iconfont icon-speechbubble"></i> 聊天室</el-menu-item
             > -->
@@ -137,19 +146,26 @@ onBeforeUnmount(() => {
             >
             <!-- <el-menu-item index="/music"><i class="iconfont icon-bofangduilie"></i> 音乐</el-menu-item> -->
           </el-sub-menu>
-          <el-menu-item index="/category"><i class="iconfont icon-sort"></i> 分类</el-menu-item>
+          <el-menu-item index="/category"
+            ><i class="iconfont icon-sort"></i><span class="header-title">分类</span>
+          </el-menu-item>
           <!-- <el-menu-item index="/tag"><i class="iconfont icon-label_fill"></i> 标签</el-menu-item> -->
-          <el-menu-item index="/photoAlbum"><i class="iconfont icon-paper"></i> 相册</el-menu-item>
-          <el-menu-item index="/talk"><i class="iconfont icon-speechbubble"></i> 说说</el-menu-item>
+          <el-menu-item index="/photoAlbum"
+            ><i class="iconfont icon-paper"></i>
+            <span class="header-title">相册</span></el-menu-item
+          >
+          <el-menu-item index="/talk"
+            ><i class="iconfont icon-speechbubble"></i><span class="header-title">说说</span>
+          </el-menu-item>
           <el-menu-item index="/link/list"
-            ><i class="iconfont icon-pengyouquan"></i> 友链</el-menu-item
-          >
+            ><i class="iconfont icon-pengyouquan"></i><span class="header-title">友链</span>
+          </el-menu-item>
           <el-menu-item index="/message/list"
-            ><i class="iconfont icon-liuyan"></i> 留言</el-menu-item
-          >
+            ><i class="iconfont icon-liuyan"></i><span class="header-title">留言</span>
+          </el-menu-item>
           <el-menu-item index="/login" v-if="!getUserInfo.id"
-            ><i class="iconfont icon-timerauto"></i> 登录</el-menu-item
-          >
+            ><i class="iconfont icon-timerauto"></i><span class="header-title">登录</span>
+          </el-menu-item>
           <div v-else class="user flex justify-center items-center">
             <el-sub-menu index="/#">
               <template #title
@@ -166,7 +182,7 @@ onBeforeUnmount(() => {
             </el-sub-menu>
           </div>
         </el-menu>
-        <SwitchTheme />
+        <!-- <SwitchTheme /> -->
       </div>
     </div>
     <div class="mobile_menu flex_r_between">
@@ -258,6 +274,27 @@ onBeforeUnmount(() => {
     padding: 5px 0 0 0;
     display: flex;
     align-items: center;
+    a {
+      text-decoration: none;
+    }
+    .left-header-logo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo-title {
+        animation: authoranime-logo 5s infinite;
+        overflow: hidden;
+        transition: width 1s;
+        width: 0;
+        white-space: nowrap;
+        font-size: 1.3rem;
+      }
+      &:hover {
+        .logo-title {
+          width: 150px;
+        }
+      }
+    }
   }
 
   .sub-menu {
@@ -273,7 +310,19 @@ onBeforeUnmount(() => {
     }
   }
 }
+@keyframes authoranime-logo {
+  0% {
+    color: #00d7c9;
+  }
 
+  50% {
+    color: #00c53b;
+  }
+
+  to {
+    color: #00d7c9;
+  }
+}
 .pc_menu {
   :deep(.el-sub-menu__icon-arrow) {
     display: none;
@@ -288,7 +337,9 @@ onBeforeUnmount(() => {
   font-size: 1.2rem;
   margin-right: 5px;
 }
-
+.header-title {
+  font-size: 1.2rem;
+}
 .icon-menu2 {
   font-size: 1.4rem;
   color: var(--menu-color);

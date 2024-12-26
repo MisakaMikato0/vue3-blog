@@ -5,9 +5,9 @@
     class="footer_box flex flex-col items-center justify-center"
   >
     <!-- eslint-disable-next-line -->
-    <div class="footer-color">&copy 小张的博客 2023</div>
+    <div class="footer-color">&copy 幻想乡白玉楼</div>
     <a class="footer-color change-color mt-[5px]" href="http://beian.miit.gov.cn/" target="_blank"
-      >蜀ICP备2023007772号</a
+      >幻想乡ICP备2023007772号</a
     >
     <div class="footer-color mt-[5px] flex justify-center flex-wrap">
       <a

@@ -36,7 +36,7 @@ onMounted(() => {
   musicSetters.init();
   ElNotification({
     offset: 60,
-    title: "左下角听听歌吧～",
+    title: "点击左边按钮听听歌吧～",
   });
 });
 </script>

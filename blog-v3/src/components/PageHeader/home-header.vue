@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
 <template>
   <div id="home">
     <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image>
-    <div class="font">小张的个人博客</div>
+    <div class="font">白玉楼</div>
     <TypeWriter class="type-writer" size="1.2em" :typeList="saying"></TypeWriter>
     <Waves />
     <!-- <First /> -->
@@ -159,19 +159,12 @@ onBeforeUnmount(() => {
 
 @keyframes anime {
   from {
-    font-variation-settings:
-      "wght" 300,
-      "slnt" 15;
+    font-variation-settings: "wght" 300, "slnt" 15;
     text-shadow: none;
   }
   to {
-    font-variation-settings:
-      "wght" 800,
-      "slnt" 0;
-    text-shadow:
-      1px 1px 0px #00e6e6,
-      2px 2px 0px #01cccc,
-      5px 5px 5px #dda121;
+    font-variation-settings: "wght" 800, "slnt" 0;
+    text-shadow: 1px 1px 0px #00e6e6, 2px 2px 0px #01cccc, 5px 5px 5px #dda121;
   }
 }
 

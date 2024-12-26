@@ -5,6 +5,7 @@
   --primary: #49b1f5;
   --router-color: #dddddd;
   --font-color: #4b4948;
+  --title-font:rgb(255, 192, 203);
   --second-font-color: #b3b7ff;
   --hot-color: #f00;
   --md-active: #49b1f5;
@@ -24,7 +25,7 @@
   --shadow-button-bg: rgba(210, 210, 210, 0.5);
   --card-bg: #fff;
   --card-box-shadow: 0 3px 6px 3px rgba(7, 17, 27, 0.06);
-  --card-hover-box-shadow: 0 3px 6px 3px rgba(7, 17, 27, 0.15);
+  --card-hover-box-shadow: 0 5px 6px 3px rgba(7, 17, 27, 0.15);
   --chat-bg: #e6e6e6;
   --global-gradient: #fff;
   --header-bg: rgba(29, 30, 31, 0.5);
@@ -50,7 +51,6 @@ html.dark {
   --home-bg: #282828;
   --home-mask-color: rgba(0, 0, 0, 0.4);
   --music-main-bg: #303030;
-
   --menu-color: var(--font-color);
 
   --button-linear-gradient: linear-gradient(300deg, #a286a2 0%, #648faf 100%);

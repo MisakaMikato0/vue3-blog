@@ -187,6 +187,8 @@
 
 .icon-arrowdown:before {
   content: "\e608";
+  font-size:3rem;
+  color:pink;
 }
 
 .icon-menu2:before {

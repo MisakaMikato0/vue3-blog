@@ -12,6 +12,8 @@ import MusicPlayer from "@/components/Music/index";
 import BackTop from "@/components/BackTop/index";
 import ChatRoom from "@/components/ChatRoom/index";
 
+import SwitchTheme from "@/components/SwitchTheme/index.vue";
+
 const userStore = user();
 const router = useRouter();
 const route = useRoute();
@@ -84,6 +86,10 @@ onMounted(async () => {
       @click="goBack"
     ></i>
     <MusicPlayer />
+    <div class="switch-box">
+      <SwitchTheme />
+    </div>
+
     <ChatRoom :isPc="isPc" v-if="route.path !== '/'" />
   </div>
 </template>
@@ -101,5 +107,16 @@ onMounted(async () => {
   font-size: 2.2rem;
   color: var(--font-color);
   z-index: 999;
+}
+.switch-box {
+  position: fixed;
+  right: 5px;
+  bottom: 0;
+  z-index: 999;
+}
+@media screen and (max-width: 768px) {
+  .switch-box {
+    display: none;
+  }
 }
 </style>

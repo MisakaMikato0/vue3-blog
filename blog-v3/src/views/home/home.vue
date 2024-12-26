@@ -126,6 +126,7 @@ onMounted(async () => {
           class="mobile-top-card mobile-card info-card animate__animated animate__fadeIn"
           shadow="hover"
         >
+          <!-- 移动端个人信息 -->
           <el-skeleton :loading="rightSizeLoading" animated>
             <template #template>
               <MobileTopSkeleton />
