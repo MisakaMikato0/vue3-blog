@@ -39,7 +39,7 @@ const scrollListener = debounce(() => {
 }, 50);
 
 const initOneSentence = async () => {
-  fetch("https://api.vvhan.com/api/ian/rand?type=json")
+  fetch("https://api.vvhan.com/api/ian/dongman?type=json")
     .then((res) => res.json())
     .then((res) => {
       if (res.success) {
@@ -88,7 +88,7 @@ onBeforeUnmount(() => {
 <template>
   <div id="home">
     <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image>
-    <div class="font">白玉楼</div>
+    <div class="font startWork">白玉楼</div>
     <TypeWriter class="type-writer" size="1.2em" :typeList="saying"></TypeWriter>
     <Waves />
     <!-- <First /> -->
@@ -179,7 +179,22 @@ onBeforeUnmount(() => {
     opacity: 1;
   }
 }
+@keyframes curveAnimation {
+  0% {
+    margin-top: -0.2%;
+  }
 
+  50% {
+    margin-top: 0.2%;
+  }
+
+  to {
+    margin-top: -0.2%;
+  }
+}
+.startWork {
+  animation: curveAnimation 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
 .type-writer {
   position: absolute;
   top: 60%;
