@@ -223,7 +223,9 @@ watch(
     place-items: center;
   }
 }
-
+.card-hover {
+  background: var(--global-gradient-card);
+}
 .no-article {
   color: var(--font-color);
   width: 100%;

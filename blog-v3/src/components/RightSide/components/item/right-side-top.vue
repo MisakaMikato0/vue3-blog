@@ -74,15 +74,15 @@ const operate = (op, val) => {
       </span>
     </span>
   </div>
-  <div class="git-ee flex_r_around">
+  <!-- <div class="git-ee flex_r_around">
     <span
       class="git-ee__item button-animated"
       @click="operate('openLink', configDetail.git_ee_link)"
     >
       <i class="iconfont icon-gitee2"> </i>
-      <span class="git-ee__item-text"> My Gitee</span>
+      <span class="git-ee__item-text"> 我的码云</span>
     </span>
-  </div>
+  </div> -->
   <div class="personal-link flex_r_around">
     <i
       class="iconfont icon-bilibili-line to_pointer"
@@ -145,7 +145,7 @@ const operate = (op, val) => {
 .personal-say {
   height: 4.5rem;
   padding: 8px;
-  color: var(--font-color-title);
+  color: var(--second-font-color);
   font-size: 1em;
   font-family: "DYBlack", serif;
 }

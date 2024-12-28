@@ -241,13 +241,15 @@ onMounted(() => {
   width: 100%;
 
   .info-card {
-    height: 29rem;
+    height: 27rem;
+    background: var(--global-gradient-card);
   }
 
   .right-card {
     padding: 1rem 1.8rem;
     color: var(--font-color);
     min-height: 10rem;
+    background: var(--global-gradient-card);
 
     .card-title {
       font-size: 1.2rem;

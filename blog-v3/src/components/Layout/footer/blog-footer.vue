@@ -5,11 +5,11 @@
     class="footer_box flex flex-col items-center justify-center"
   >
     <!-- eslint-disable-next-line -->
-    <div class="footer-color">&copy 幻想乡白玉楼</div>
+    <div class="footer-color my-face">&copy 幻想乡白玉楼 ღゝ◡╹)ノ♡</div>
     <a class="footer-color change-color mt-[5px]" href="http://beian.miit.gov.cn/" target="_blank"
       >幻想乡ICP备2023007772号</a
     >
-    <div class="footer-color mt-[5px] flex justify-center flex-wrap">
+    <!-- <div class="footer-color mt-[5px] flex justify-center flex-wrap">
       <a
         class="p-[3px]"
         href="https://www.aliyun.com/?spm=5176.28055625.J_3207526240.1.6a27154aw7v5VK"
@@ -34,7 +34,7 @@
           alt=""
         />
       </a>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -56,5 +56,132 @@ const route = useRoute();
   &:hover {
     color: var(--global-black);
   }
+}
+@keyframes my-face {
+  2%,
+  24%,
+  80% {
+    transform: translateY(1.5px) rotate(1.5deg);
+  }
+
+  4%,
+  68%,
+  98% {
+    transform: translateY(-1.5px) rotate(-0.5deg);
+  }
+
+  38%,
+  6% {
+    transform: translateY(1.5px) rotate(-1.5deg);
+  }
+
+  8%,
+  86% {
+    transform: translateY(-1.5px) rotate(-1.5deg);
+  }
+
+  10%,
+  72% {
+    transform: translateY(2.5px) rotate(1.5deg);
+  }
+
+  12%,
+  64%,
+  78%,
+  96% {
+    transform: translateY(-0.5px) rotate(1.5deg);
+  }
+
+  14%,
+  54% {
+    transform: translateY(-1.5px) rotate(1.5deg);
+  }
+
+  16% {
+    transform: translateY(-0.5px) rotate(-1.5deg);
+  }
+
+  18%,
+  22% {
+    transform: translateY(0.5px) rotate(-1.5deg);
+  }
+
+  20%,
+  36%,
+  46% {
+    transform: translateY(-1.5px) rotate(2.5deg);
+  }
+
+  26%,
+  50% {
+    transform: translateY(0.5px) rotate(0.5deg);
+  }
+
+  28% {
+    transform: translateY(0.5px) rotate(1.5deg);
+  }
+
+  30%,
+  40%,
+  62%,
+  76%,
+  88% {
+    transform: translateY(-0.5px) rotate(2.5deg);
+  }
+
+  32%,
+  34%,
+  66% {
+    transform: translateY(1.5px) rotate(-0.5deg);
+  }
+
+  42% {
+    transform: translateY(2.5px) rotate(-1.5deg);
+  }
+
+  44%,
+  70% {
+    transform: translateY(1.5px) rotate(0.5deg);
+  }
+
+  48%,
+  74%,
+  82% {
+    transform: translateY(-0.5px) rotate(0.5deg);
+  }
+
+  52%,
+  56%,
+  60% {
+    transform: translateY(2.5px) rotate(2.5deg);
+  }
+
+  58% {
+    transform: translateY(0.5px) rotate(2.5deg);
+  }
+
+  84% {
+    transform: translateY(1.5px) rotate(2.5deg);
+  }
+
+  90% {
+    transform: translateY(2.5px) rotate(-0.5deg);
+  }
+
+  92% {
+    transform: translateY(0.5px) rotate(-0.5deg);
+  }
+
+  94% {
+    transform: translateY(2.5px) rotate(0.5deg);
+  }
+
+  0%,
+  to {
+    transform: translate(0) rotate(0);
+  }
+}
+.my-face {
+  animation: my-face 5s ease-in-out infinite;
 }
 </style>

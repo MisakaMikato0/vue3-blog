@@ -23,11 +23,14 @@
   --music-main-bg: #fff;
   --mask-bg: rgba(0, 0, 0, 0.5);
   --shadow-button-bg: rgba(210, 210, 210, 0.5);
-  --card-bg: #fff;
+  --card-bg: rgb(248, 237, 252);
   --card-box-shadow: 0 3px 6px 3px rgba(7, 17, 27, 0.06);
   --card-hover-box-shadow: 0 5px 6px 3px rgba(7, 17, 27, 0.15);
   --chat-bg: #e6e6e6;
   --global-gradient: #fff;
+  --global-gradient-pink: rgb(248, 237, 252);
+  --global-gradient-card: rgb(248, 237, 252);
+
   --header-bg: rgba(29, 30, 31, 0.5);
   --home-bg: #303030;
   --home-mask-color: rgba(0, 0, 0, 0.2);
@@ -37,10 +40,10 @@
   --button-linear-gradient: linear-gradient(300deg, #74ebd5 0%, #9face6 100%);
   --button-linear-gradient-h: linear-gradient(300deg, #9face6 0%, #74ebd5 100%);
 
-  --wave-one-color: rgba(255, 255, 255, 0.7);
-  --wave-two-color: rgba(255, 255, 255, 0.5);
-  --wave-three-color: rgba(255, 255, 255, 0.3);
-  --wave-four-color: rgba(255, 255, 255, 1);
+  --wave-one-color: rgba(248, 237, 252, 0.7);
+  --wave-two-color: rgba(248, 237, 252, 0.5);
+  --wave-three-color: rgba(248, 237, 252, 0.3);
+  --wave-four-color: rgba(248, 237, 252, 1);
 }
 
 html.dark {
@@ -56,8 +59,12 @@ html.dark {
   --button-linear-gradient: linear-gradient(300deg, #a286a2 0%, #648faf 100%);
   --button-linear-gradient-h: linear-gradient(300deg, #648faf 0%, #a286a2 100%);
 
-  --wave-one-color: rgba(40, 40, 40, 0.7);
-  --wave-two-color: rgba(40, 40, 40, 0.5);
-  --wave-three-color: rgba(40, 40, 40, 0.3);
-  --wave-four-color: rgba(40, 40, 40, 1);
+  --wave-one-color: rgba(17,17,17, 0.7);
+  --wave-two-color: rgba(17,17,17, 0.5);
+  --wave-three-color: rgba(17,17,17, 0.3);
+  --wave-four-color: rgba(17,17,17, 1);
+  --global-gradient-pink: #111;
+  --global-gradient-card: #1d1e1f;
+
+
 }

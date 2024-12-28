@@ -85,12 +85,12 @@ onMounted(async () => {
       class="iconfont icon-fanhui"
       @click="goBack"
     ></i>
-    <MusicPlayer />
+    <!-- <MusicPlayer /> -->
     <div class="switch-box">
       <SwitchTheme />
     </div>
 
-    <ChatRoom :isPc="isPc" v-if="route.path !== '/'" />
+    <!-- <ChatRoom :isPc="isPc" v-if="route.path !== '/'" /> -->
   </div>
 </template>
 
