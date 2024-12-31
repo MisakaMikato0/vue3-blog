@@ -11,7 +11,7 @@ const Config = seq.define(
       type: DataTypes.STRING(55),
       require: true,
       comment: "博客名称",
-      defaultValue: "小张的博客",
+      defaultValue: "幻想乡白玉楼",
     },
     blog_avatar: {
       type: DataTypes.STRING, // STRING 默认255

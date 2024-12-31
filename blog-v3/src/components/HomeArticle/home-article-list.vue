@@ -139,6 +139,7 @@ watch(
                     <span class="meta-label">发表于</span>
                     <span class="meta-value">{{ item.createdAt }}</span>
                   </span>
+                  <span class="article-meta__separator"></span>
                   <span class="to_pointer">
                     <i class="iconfont icon-schedule"></i>
                     <span class="meta-label">更新于</span>
@@ -252,7 +253,24 @@ watch(
       color: var(--second-font-color);
     }
   }
-
+  .icon-calendar2 {
+    color: skyblue;
+  }
+  .icon-schedule {
+    color: deeppink;
+  }
+  .icon-folder {
+    color: red;
+  }
+  .icon-label_fill {
+    color: blue;
+  }
+  .icon-icon1 {
+    color: aqua;
+  }
+  .icon-chakan {
+    color: gold;
+  }
   .meta {
     color: var(--meta-color);
     line-height: 1.4;

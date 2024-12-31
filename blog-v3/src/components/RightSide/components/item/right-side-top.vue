@@ -2,11 +2,11 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-import blogAvatar from "@/assets/img/blogAvatar.png";
+import blogUser from "@/assets/img/blogUser.jpg";
 import GsapCount from "@/components/GsapCount/index";
 
 const router = useRouter();
-const avatar = ref(blogAvatar); // 博客头像
+const avatar = ref(blogUser); // 博客头像
 
 defineProps({
   configDetail: {

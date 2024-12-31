@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
   <PageHeader :loading="loading" />
   <div class="center_box">
     <el-card class="!m-[3px] !p-[10px]">
-      <el-descriptions :column="1">
+      <!-- <el-descriptions :column="1">
         <template #title>
           <div class="desc-title">{{ "欢迎来到" + blogName }}</div>
         </template>
@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
             <span class="apply-button" @click="applyLinks">友链申请</span>
           </span>
         </el-descriptions-item>
-      </el-descriptions>
+      </el-descriptions> -->
     </el-card>
     <el-skeleton :loading="loading" style="height: 100%" animated>
       <template #template>

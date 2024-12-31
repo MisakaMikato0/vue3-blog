@@ -6,7 +6,7 @@ import { reqLogin, reqRegister, getUserInfoById } from "@/api/user";
 
 import { user } from "@/store/index.js";
 import { getWelcomeSay, _getLocalItem, _setLocalItem, _removeLocalItem } from "@/utils/tool";
-import blogAvatar from "@/assets/img/blogAvatar.png";
+import blogAvatar from "@/assets/img/blogAvatar.jpg";
 
 // 本地数据加密解密
 import { _encrypt, _decrypt } from "@/utils/encipher";
@@ -77,7 +77,7 @@ const welcome = (id, nick_name) => {
   // 欢迎
   let msg = getWelcomeSay(nick_name);
   if (id == 3) {
-    msg = "小婷光临，真是三生有幸";
+    msg = "大佬光临，真是三生有幸";
   }
   ElNotification({
     offset: 60,
@@ -189,6 +189,12 @@ const toRegister = () => {
 
 // 提交
 const submit = async () => {
+  ElNotification({
+    offset: 60,
+    title: "摆了～",
+    message: h("div", { style: "font-weight: 600;" }, "别点了，没有"),
+  });
+  return;
   if (isLogin.value) {
     userLogin();
   } else {
@@ -259,7 +265,7 @@ watch(
         :model="loginForm"
         :rules="loginRules"
       >
-        <div class="!w-[100%] !h-[6rem]">
+        <div class="!w-[100%] !h-[6rem] login-logo">
           <el-image style="width: 80px; height: 80px" :src="blogAvatar" fit="cover" />
         </div>
         <el-form-item prop="username">
@@ -345,6 +351,10 @@ watch(
   &-form {
     width: 100%;
   }
+}
+.login-logo {
+  display: flex;
+  justify-content: center;
 }
 .apply-button {
   width: 100%;

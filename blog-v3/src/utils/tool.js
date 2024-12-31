@@ -175,26 +175,26 @@ export function numberFormate(number) {
 export function getWelcomeSay(nickName) {
   let res;
   if (!nickName) {
-    res = "欢迎来到小张的个人博客";
+    res = "欢迎来到幻想乡白玉楼";
     return res;
   }
   const now = new Date().getHours();
   if (now >= 0 && now < 5) {
-    res = `夜深了：${nickName}，请注意休息！`;
+    res = `夜已深！${nickName}，请注意休息！`;
   } else if (now >= 5 && now < 9) {
-    res = `早上好：${nickName}，今天又是活力满满的一天！`;
+    res = `早上好！${nickName}，今天又是活力满满的一天！`;
   } else if (now >= 9 && now < 12) {
-    res = `上午好：${nickName}，请合理安排时间摸鱼！`;
+    res = `上午好！${nickName}，请合理安排时间摸鱼！`;
   } else if (now >= 12 && now < 14) {
-    res = `中午好：${nickName}，现在正适合睡一觉`;
+    res = `中午好！${nickName}，现在正适合睡一觉`;
   } else if (now >= 14 && now < 18) {
-    res = `下午好：${nickName}`;
+    res = `下午好！${nickName}`;
   } else if (now >= 18 && now < 20) {
-    res = `傍晚好：${nickName}，记得按时吃饭`;
+    res = `傍晚好！${nickName}，记得按时吃饭`;
   } else if (now >= 20 && now < 22) {
-    res = `晚上好: ${nickName}`;
+    res = `晚上好！${nickName}`;
   } else if (now >= 22) {
-    res = `晚上好: ${nickName}，记得按时碎觉哦`;
+    res = `黑夜降临了！${nickName}，记得按时碎觉哦`;
   }
 
   return res;

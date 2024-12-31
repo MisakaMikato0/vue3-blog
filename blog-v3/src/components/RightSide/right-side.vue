@@ -80,16 +80,17 @@ onMounted(() => {
           </el-skeleton>
         </el-card>
       </el-col>
-      <el-col :xs="0" :sm="24" class="right-side-space right-side-space3">
-        <el-card
-          class="right-card card-hover flex_c_center animate__animated animate__fadeIn"
-          shadow="hover"
-        >
-          <el-skeleton :loading="loading" animated>
-            <template #template>
-              <RightSideSkeletonItem />
-            </template>
-            <template #default>
+      <!-- 我的联系方式 -->
+      <!-- <el-col :xs="0" :sm="24" class="right-side-space right-side-space3">
+      <el-card
+        class="right-card card-hover flex_c_center animate__animated animate__fadeIn"
+        shadow="hover"
+      >
+        <el-skeleton :loading="loading" animated>
+          <template #template>
+            <RightSideSkeletonItem />
+          </template>
+          <template #default>
               <RightSideItem size="1.5rem" color="#76d703" icon="icon-jiaoliuye" title="交流">
                 <div class="group">
                   <div class="flex justify-end items-start flex-nowrap">
@@ -127,7 +128,7 @@ onMounted(() => {
                     </div>
                   </div>
                 </div>
-                <!-- <div class="group">
+          <div class="group">
                   支持作者
                   <div class="flex justify-end items-start flex-nowrap">
                     <div class="grid place-items-center" v-image="configDetail.ali_pay">
@@ -163,12 +164,12 @@ onMounted(() => {
                       </el-image>
                     </div>
                   </div>
-                </div> -->
-              </RightSideItem>
+                </div>
+          </RightSideItem>
             </template>
-          </el-skeleton>
-        </el-card>
-      </el-col>
+        </el-skeleton>
+      </el-card>
+      </el-col> -->
       <el-col :xs="0" :sm="24" class="right-side-space right-side-space4">
         <el-card
           class="right-card card-hover flex_c_center animate__animated animate__fadeIn"

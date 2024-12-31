@@ -138,12 +138,12 @@ onBeforeUnmount(() => {
               ><i class="iconfont icon-speechbubble"></i> 聊天室</el-menu-item
             > -->
             <el-menu-item index="/archives"><i class="iconfont icon-icon"></i>归档 </el-menu-item>
-            <el-menu-item index="/resources/front"
+            <!-- <el-menu-item index="/resources/front"
               ><i class="iconfont icon-folder"></i> 前端推荐</el-menu-item
             >
             <el-menu-item index="/resources/back"
               ><i class="iconfont icon-houduankaifa"></i> 后端推荐</el-menu-item
-            >
+            > -->
             <!-- <el-menu-item index="/music"><i class="iconfont icon-bofangduilie"></i> 音乐</el-menu-item> -->
           </el-sub-menu>
           <el-menu-item index="/login" v-if="!getUserInfo.id"
@@ -262,7 +262,6 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .header_box {
   .sub-avatar {
-    padding: 5px 0 0 0;
     display: flex;
     align-items: center;
     a {
@@ -278,7 +277,7 @@ onBeforeUnmount(() => {
         transition: width 1s;
         // width: 0;
         white-space: nowrap;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
       // &:hover {
       //   .logo-title {

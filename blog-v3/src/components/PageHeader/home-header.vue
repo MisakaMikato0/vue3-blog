@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
   <div id="home">
     <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image>
     <div class="font startWork">白玉楼</div>
-    <TypeWriter class="type-writer" size="1.2em" :typeList="saying"></TypeWriter>
+    <TypeWriter class="type-writer" size="1.5em" :typeList="saying"></TypeWriter>
     <Waves />
     <!-- <First /> -->
     <div v-if="showScrollBottom" class="scroll-bottom">
@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
   left: 50%;
   z-index: 999;
   transform: translate(-50%, -50%);
-  font-size: clamp(1em, 4vmin, 20em);
+  font-size: clamp(3em, 4vmin, 25em);
   color: var(--global-white);
   padding: 0.5rem;
   cursor: pointer;
