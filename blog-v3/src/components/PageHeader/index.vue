@@ -117,6 +117,7 @@ watch(
           <span class="meta-label">发表于</span>
           <span class="meta-value">{{ article.createdAt }}</span>
         </span>
+        <span class="meta-separator"></span>
         <span class="to_pointer">
           <i class="iconfont icon-schedule"></i>
           <span class="meta-label">更新于</span>
@@ -134,8 +135,8 @@ watch(
             index + 1 == article.tagNameList.length ? item : item + "、"
           }}</span>
         </span>
-        <span class="meta-separator"></span>
-        <span class="to_pointer">
+        <!-- <span class="meta-separator"></span> -->
+        <!-- <span class="to_pointer">
           <i class="iconfont icon-icon1"></i>
           <span class="meta-label">点赞数</span>
           <GsapCount
@@ -146,7 +147,7 @@ watch(
           <span v-else class="meta-value">
             {{ numberFormate(article.thumbs_up_times) }}
           </span>
-        </span>
+        </span> -->
         <span class="meta-separator"></span>
         <span class="to_pointer">
           <i class="iconfont icon-chakan"></i>
@@ -158,12 +159,12 @@ watch(
           />
           <span v-else class="meta-value">{{ numberFormate(article.view_times) }}</span>
         </span>
-        <span class="meta-separator"></span>
+        <!-- <span class="meta-separator"></span>
         <span class="to_pointer">
           <i class="iconfont icon-speechbubble"></i>
           <span class="meta-label">阅读时长</span>
           <span class="meta-value">{{ readingDuration(article.reading_duration) }}</span>
-        </span>
+        </span> -->
       </div>
       <div class="toggle-theme">
         <el-dropdown class="theme-card-dropdown">

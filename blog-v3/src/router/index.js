@@ -77,7 +77,7 @@ const routes = [
         path: "/photoAlbum",
         name: "PhotoAlbum",
         meta: {
-          name: "相册",
+          name: "回忆",
         },
         component: () => import("@/views/photo/photo-album.vue"),
       },
@@ -85,7 +85,7 @@ const routes = [
         path: "/photos",
         name: "Photos",
         meta: {
-          name: "图库",
+          name: "片段",
         },
         component: () => import("@/views/photo/photos.vue"),
       },
