@@ -94,6 +94,7 @@ declare module '@vue/runtime-core' {
     TimeLine: typeof import('./src/components/TimeLine/time-line.vue')['default']
     TimeVolume: typeof import('./src/components/Music/controls/components/time-volume.vue')['default']
     Tooltip: typeof import('./src/components/ToolTip/tooltip.vue')['default']
+    Typed: typeof import('./src/components/TypeWriter/typed.vue')['default']
     TypeWriter: typeof import('./src/components/TypeWriter/type-writer.vue')['default']
     Upload: typeof import('./src/components/Upload/upload.vue')['default']
     Waves: typeof import('./src/components/WelcomeComps/waves.vue')['default']

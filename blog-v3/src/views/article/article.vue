@@ -81,7 +81,7 @@ const like = async () => {
         message: h(
           "div",
           { style: "color: #7ec050; font-weight: 600;" },
-          "有什么不足可以给我留下评论，感谢指正"
+          "呜呜呜~ 有什么问题可以提出来，不要取消呀！"
         ),
       });
     }
@@ -100,7 +100,7 @@ const like = async () => {
       ElNotification({
         offset: 60,
         title: "提示",
-        message: h("div", { style: "color: #7ec050; font-weight: 600;" }, "点赞成功，谢谢支持"),
+        message: h("div", { style: "color: #7ec050; font-weight: 600;" }, "点赞成功，谢谢佬的赞"),
       });
     }
   }

@@ -8,7 +8,7 @@ import viteCompression from "vite-plugin-compression"; // gzip压缩
 import { resolve } from "path";
 import requireTransform from "vite-plugin-require-transform"; // 支持require
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons"; // 支持svg
-
+import Inspector from 'unplugin-vue-inspector/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
@@ -27,6 +27,7 @@ export default defineConfig({
   // 按需导入element-plus main.js里不需要再引入了
   plugins: [
     vue(),
+    Inspector(),
     commonjs(),
     // 自动导入element plus组件
     AutoImport({

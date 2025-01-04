@@ -22,48 +22,63 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 80px;
-        height: 80px;
+        width: 120px; /* 圆的直径 */
+        height: 120px;
       }
-      .load hr {
-        border: 0;
-        margin: 0;
-        width: 40%;
-        height: 40%;
+
+      /* 外层容器，用于旋转 */
+      .sakura-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        animation: rotate-circle 2s linear infinite; /* 整体旋转动画 */
+      }
+
+      /* 单个樱花 */
+      .sakura {
         position: absolute;
+        width: 40px;
+        height: 40px;
+        background-image: url("./src/assets/img/sakura.png"); /* 替换为樱花图片路径 */
+        background-size: cover;
+        background-repeat: no-repeat;
         border-radius: 50%;
-        animation: spin 2s ease infinite;
       }
 
-      .load :first-child {
-        background: #49b1f5;
-        animation-delay: -1.5s;
+      /* 均匀分布 5 个樱花 */
+      .sakura:nth-child(1) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0deg) translate(60px) rotate(0deg);
       }
-      .load :nth-child(2) {
-        background: #aadafa;
-        animation-delay: -1s;
+      .sakura:nth-child(2) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(72deg) translate(60px) rotate(-72deg);
       }
-      .load :nth-child(3) {
-        background: #49b1f5;
-        animation-delay: -0.5s;
+      .sakura:nth-child(3) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(144deg) translate(60px) rotate(-144deg);
       }
-      .load :last-child {
-        background: #aadafa;
+      .sakura:nth-child(4) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(216deg) translate(60px) rotate(-216deg);
+      }
+      .sakura:nth-child(5) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(288deg) translate(60px) rotate(-288deg);
       }
 
-      @keyframes spin {
-        0%,
+      /* 整体旋转动画 */
+      @keyframes rotate-circle {
+        0% {
+          transform: rotate(0deg);
+        }
         100% {
-          transform: translate(0);
-        }
-        25% {
-          transform: translate(160%);
-        }
-        50% {
-          transform: translate(160%, 160%);
-        }
-        75% {
-          transform: translate(0, 160%);
+          transform: rotate(360deg);
         }
       }
     </style>
@@ -78,10 +93,15 @@
         >
       </noscript>
       <div class="load">
-        <hr />
-        <hr />
-        <hr />
-        <hr />
+        <section>
+          <div class="sakura-wrapper">
+            <div class="sakura"></div>
+            <div class="sakura"></div>
+            <div class="sakura"></div>
+            <div class="sakura"></div>
+            <div class="sakura"></div>
+          </div>
+        </section>
       </div>
     </div>
     <span class="js-cursor-container"></span>

@@ -4,6 +4,8 @@ import { useRoute } from "vue-router";
 import { staticData } from "@/store/index.js";
 
 import TypeWriter from "@/components/TypeWriter/type-writer";
+import Typed from "@/components/TypeWriter/typed";
+
 import Waves from "@/components/WelcomeComps/waves.vue";
 import { debounce } from "@/utils/tool";
 import gsap from "gsap";
@@ -47,7 +49,18 @@ const initOneSentence = async () => {
       }
     });
 };
-
+// 自定义打字机的数据
+const strings = ref([
+  "もしかして、太陽だって勝てるんじゃない？",
+  "因为我是最强的无敌妖精！",
+  "富士见之女于西行妖满开时，分开幽明镜。 其魂安息于白玉楼中， 封印西行妖之花以为是结界。 可能的话， 望不会再次遭受痛苦。 永久， 忘却轮换转生。",
+  "优雅的绽放，墨染樱花。",
+  "妖怪所锻造的这把楼观剑，无法斩断的东西，几乎不存在！",
+  "そうだよ！ 負けるわけがないじゃん！",
+  "回归于花下好了，春之亡灵！ / 沉眠于花下好了，红白之蝶！",
+  "想要说明何为活着的事物，就需要死的事物。因此，不死的生物是不可能存在的。不活着就无法死，不死的生物不算活着。我认为生命的实际状态，就在于这厚度为零的生死之境",
+  "亡骸就是要集中在一个地方，才会美丽哦～春和樱花也一样……",
+]);
 const initScrollEvent = () => {
   window.addEventListener("scroll", scrollListener);
 };
@@ -89,7 +102,16 @@ onBeforeUnmount(() => {
   <div id="home">
     <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image>
     <div class="font startWork">白玉楼</div>
-    <TypeWriter class="type-writer" size="1.5em" :typeList="saying"></TypeWriter>
+    <!-- <TypeWriter class="type-writer" size="1.5em" :typeList="saying"></TypeWriter> -->
+    <Typed
+      class="type-writer"
+      size="1.7em"
+      :strings="strings"
+      :typeSpeed="100"
+      :backSpeed="100"
+      :loop="true"
+    />
+
     <Waves />
     <!-- <First /> -->
     <div v-if="showScrollBottom" class="scroll-bottom">
