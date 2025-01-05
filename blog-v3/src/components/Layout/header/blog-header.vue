@@ -222,12 +222,12 @@ onBeforeUnmount(() => {
               > -->
               <el-menu-item index="/archives"><i class="iconfont icon-icon"></i> 归档</el-menu-item>
 
-              <el-menu-item index="/resources/front"
+              <!-- <el-menu-item index="/resources/front"
                 ><i class="iconfont icon-folder"></i> 前端推荐</el-menu-item
               >
               <el-menu-item index="/resources/back"
                 ><i class="iconfont icon-houduankaifa"></i> 后端推荐</el-menu-item
-              >
+              > -->
             </el-sub-menu>
             <el-menu-item index="/category"><i class="iconfont icon-sort"></i> 分类</el-menu-item>
             <el-menu-item index="/tag"><i class="iconfont icon-label_fill"></i> 标签</el-menu-item>
@@ -332,7 +332,7 @@ onBeforeUnmount(() => {
   margin-right: 5px;
 }
 .header-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   display: flex;
   align-content: center;
 }

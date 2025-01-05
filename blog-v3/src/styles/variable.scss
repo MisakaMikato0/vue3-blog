@@ -5,7 +5,7 @@
   --primary: #49b1f5;
   --router-color: #dddddd;
   --font-color: #4b4948;
-  --title-font:rgb(255, 192, 203);
+  --title-font: rgb(255, 192, 203);
   --second-font-color: #b3b7ff;
   --hot-color: #f00;
   --md-active: #49b1f5;
@@ -54,15 +54,15 @@ html.dark {
   --home-bg: #282828;
   --home-mask-color: rgba(0, 0, 0, 0.4);
   --music-main-bg: #303030;
-  --menu-color: var(--font-color);
+  // --menu-color: var(--font-color);
 
   --button-linear-gradient: linear-gradient(300deg, #ffb9f3 0%, #fa1fc3 100%);
   --button-linear-gradient-h: linear-gradient(300deg, #fa1fc3 0%, #ffb9f3 100%);
 
-  --wave-one-color: rgba(17,17,17, 0.7);
-  --wave-two-color: rgba(17,17,17, 0.5);
-  --wave-three-color: rgba(17,17,17, 0.3);
-  --wave-four-color: rgba(17,17,17, 1);
+  --wave-one-color: rgba(17, 17, 17, 0.7);
+  --wave-two-color: rgba(17, 17, 17, 0.5);
+  --wave-three-color: rgba(17, 17, 17, 0.3);
+  --wave-four-color: rgba(17, 17, 17, 1);
   --global-gradient-pink: #111;
   --global-gradient-card: #1d1e1f;
 
