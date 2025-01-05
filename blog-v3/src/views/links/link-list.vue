@@ -125,23 +125,23 @@ onBeforeUnmount(() => {
   <PageHeader :loading="loading" />
   <div class="center_box">
     <el-card class="!m-[3px] !p-[10px]">
-      <!-- <el-descriptions :column="1">
+      <el-descriptions :column="1">
         <template #title>
           <div class="desc-title">{{ "欢迎来到" + blogName }}</div>
         </template>
         <el-descriptions-item label="博客链接"
-          ><span v-copy="'http://mrzym.top/'" class="!cursor-pointer">http://mrzym.top/</span>
+          ><span v-copy="'http://hakugyokurou.fun/'" class="!cursor-pointer">http://hakugyokurou.fun/</span>
         </el-descriptions-item>
         <el-descriptions-item label="QQ">
-          <span v-copy="'2715158815'" class="!cursor-pointer">2715158815</span>
+          <span v-copy="'2301696346'" class="!cursor-pointer">2301696346</span>
         </el-descriptions-item>
         <el-descriptions-item>
           <span class="desc-remark" style="text-shadow: none">
-            快来申请幽幽子的友链吧
+            快来申请幻想乡的友链吧
             <span class="apply-button" @click="applyLinks">友链申请</span>
           </span>
         </el-descriptions-item>
-      </el-descriptions> -->
+      </el-descriptions>
     </el-card>
     <el-skeleton :loading="loading" style="height: 100%" animated>
       <template #template>

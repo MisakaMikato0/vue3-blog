@@ -69,7 +69,7 @@ const getBgCover = computed(() => {
   const bgList = getPageHeaderList.value;
   // 做一个根据路由来判断判断页面背景图片
   let url;
-  let myUrl = "http://img.mrzym.top/FvmVKfygxBKoJbFVXJwzjgAASL9S";
+  let myUrl = "../../../src/assets/img/home-bg1.gif";
 
   let index = bgList.findIndex((bg) => bg.route_name == route.name);
   url = index == -1 ? myUrl : bgList[index].bg_url;
@@ -100,7 +100,10 @@ onBeforeUnmount(() => {
 
 <template>
   <div id="home">
-    <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image>
+    <!-- 从后台获取静态图片-->
+    <!-- <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image> -->
+     <!-- 使用gif -->
+    <el-image class="bg !w-[100%] !h-[100%]" fit="cover" src="../../../src/assets/img/home-bg2.gif"></el-image>
     <div class="font startWork">白玉楼</div>
     <!-- <TypeWriter class="type-writer" size="1.5em" :typeList="saying"></TypeWriter> -->
     <Typed

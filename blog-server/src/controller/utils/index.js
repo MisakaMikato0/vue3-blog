@@ -34,7 +34,7 @@ class UtilsController {
         const reader = fs.createReadStream(file.filepath);
         const fileUrl = file.name;
         const res = await upToQiniu(reader, fileUrl);
-        if (res && res.key) {
+        if (res) {
           ctx.body = result("图片上传成功", {
             url: `${completeUrl}${res.key}`,
           });
@@ -45,7 +45,7 @@ class UtilsController {
         const res = await minioUpload(file.filepath);
         if (res) {
           ctx.body = result("图片上传成功", {
-            url: completeUrl + res,
+            url: res,
           });
         } else {
           throw new Error("MinIO 上传失败");
