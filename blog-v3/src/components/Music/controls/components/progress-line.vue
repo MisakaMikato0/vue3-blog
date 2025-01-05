@@ -1,5 +1,5 @@
 <!--
-* @Author: Zhang Yuming
+* @Author: Yuyuko
 * @Date: 2023-07-03 11:48:31
 * @Description: 音乐进度组件
 -->

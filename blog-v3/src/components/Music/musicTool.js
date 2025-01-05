@@ -70,7 +70,7 @@ export const LYRICTYPE = {
 };
 
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2023-07-07 16:53:05
  * @params: index 下标 len 歌曲数组长度
  * @description: 随机播放返回不重复的下标
@@ -88,7 +88,7 @@ const returnRandomNoRepeat = (index, len) => {
   }
 };
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2023-07-04 10:09:57
  * @params: len 歌曲列表长度 index 当前歌曲下标 playType 播放模式 isPlayNext 是下一首还是上一首
  * @description: 返回下一首播放的歌曲
@@ -145,7 +145,7 @@ export function addZero(time) {
 }
 
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2023-06-26 10:25:43
  * @params: time 时间 s
  * @description: 返回歌曲时间
@@ -165,7 +165,7 @@ export function calcMusicTime(time) {
 }
 
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2023-06-26 16:26:53
  * @params: curent 播放到哪儿了 durattion 总时长
  * @description: 计算歌曲播放百分比
@@ -175,7 +175,7 @@ export function calcMusicSchedule(current, duration) {
 }
 
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2023-10-23 13:33:46
  * @params: progress 进度 duration 播放时长
  * @description: 通过进度计算播放的时长

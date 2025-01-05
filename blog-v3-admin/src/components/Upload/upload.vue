@@ -92,6 +92,7 @@ watch(
     v-model:file-list="uploadFileList"
     :class="[showUpload && !preview ? '' : 'hide-upload']"
     action="#"
+    accept="image/*"
     list-type="picture-card"
     :auto-upload="false"
     :multiple="multiple"

@@ -201,7 +201,7 @@ export function getWelcomeSay(nickName) {
 }
 
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2023-07-13 11:14:04
  * @params: func 防抖的函数
  * @description: 防抖

@@ -1,5 +1,5 @@
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @date: 2024-07-20 13:55:38
  * @params: ctx
  * @description: 限制自动化脚本测试网站
@@ -8,7 +8,7 @@
 const RateLimit = require("koa2-ratelimit").RateLimit;
 
 /*
- * @author: Zhang Yuming
+ * @author: Yuyuko
  * @params: time 限制时间内
  * @params: max 最多访问多少次
  * @params: prefix 路径

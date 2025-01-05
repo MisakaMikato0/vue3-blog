@@ -26,6 +26,11 @@ const props = defineProps({
     type: String,
     default: "1em",
   },
+  // 洗牌
+  shuffle: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const typedElement = ref(null);
@@ -38,6 +43,7 @@ onMounted(() => {
     typeSpeed: props.typeSpeed, // 打字速度
     backSpeed: props.backSpeed, // 删除速度
     loop: props.loop, // 是否循环
+    shuffle: props.shuffle, // 是否洗牌
   };
 
   // 初始化 Typed.js

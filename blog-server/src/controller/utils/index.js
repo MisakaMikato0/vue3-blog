@@ -14,49 +14,54 @@ const { isValidUrl } = require("../../utils/tool");
 class UtilsController {
   // 图片上传
   async upload(ctx) {
-    const { file } = ctx.request.files;
+    const { file } = ctx.request.files || {};
+    if (!file || !file.filepath) {
+      ctx.body = result("文件不存在或无效", null, 400);
+      return;
+    }
 
-    if (file) {
+    let completeUrl = isValidUrl(BASEURL) ? BASEURL : "http://" + BASEURL;
+    if (!completeUrl.endsWith("/")) {
+      completeUrl += "/";
+    }
+
+    try {
       if (UPLOADTYPE == "local" || !UPLOADTYPE) {
         ctx.body = result("图片上传成功", {
-          url: "http://127.0.0.1:8888/local/" + path.basename(file.filepath),
+          url: `${completeUrl}local/${path.basename(file.filepath)}`,
+        });
+      } else if (UPLOADTYPE == "qiniu") {
+        const reader = fs.createReadStream(file.filepath);
+        const fileUrl = file.name;
+        const res = await upToQiniu(reader, fileUrl);
+        if (res && res.key) {
+          ctx.body = result("图片上传成功", {
+            url: `${completeUrl}${res.key}`,
+          });
+        } else {
+          throw new Error("七牛云上传失败");
+        }
+      } else if (UPLOADTYPE == "minio") {
+        const res = await minioUpload(file.filepath);
+        if (res) {
+          ctx.body = result("图片上传成功", {
+            url: completeUrl + res,
+          });
+        } else {
+          throw new Error("MinIO 上传失败");
+        }
+      } else if (UPLOADTYPE == "online") {
+        ctx.body = result("图片上传成功", {
+          url: `${completeUrl}online/${path.basename(file.filepath)}`,
         });
       } else {
-        let completeUrl = isValidUrl(BASEURL) ? BASEURL : "http://" + BASEURL;
-        if (completeUrl.charAt(completeUrl.length - 1) != "/") {
-          completeUrl = completeUrl + "/";
-        }
-        // 使用七牛云上传
-        if (UPLOADTYPE == "qiniu") {
-          // 创建文件可读流
-          const reader = fs.createReadStream(file.filepath);
-          // 命名文件
-          const fileUrl = file.name;
-          // 调用方法
-          const res = await upToQiniu(reader, fileUrl);
-          if (res) {
-            ctx.body = result("图片上传成功", {
-              url: completeUrl + res.hash,
-            });
-          }
-        } else if (UPLOADTYPE == "minio") {
-          // 调用方法
-          const res = await minioUpload(file.filepath);
-          if (res) {
-            ctx.body = result("图片上传成功", {
-              url: res,
-            });
-          }
-        } else if (UPLOADTYPE == "online") {
-          ctx.body = result("图片上传成功", {
-            url: completeUrl + "online/" + path.basename(file.filepath),
-          });
-        }
+        ctx.body = result("未知的上传类型", null, 400);
       }
-    } else {
-      return ctx.app.emit("error", throwError(errorCodeUpload, "文件上传失败"));
+    } catch (err) {
+      ctx.app.emit("error", throwError(errorCodeUpload, err.message));
     }
   }
+
 
   // 删除服务器下的照片
   async deleteOnlineImgs(imgList) {
