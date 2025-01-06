@@ -19,7 +19,7 @@ const router = useRouter();
 const route = useRoute();
 const { getUserInfo } = storeToRefs(userStore);
 const backTopProps = reactive({
-  right: "",
+  right: "-108px",
   svgWidth: 0,
 });
 const isPc = ref(true);
@@ -57,7 +57,7 @@ const welcome = () => {
 
 onMounted(async () => {
   // 首次判断是手机还是pc
-  backTopProps.right = 0;
+  backTopProps.right = '-108px';
   backTopProps.svgWidth = 6;
   isPc.value = !isMobile();
 
@@ -77,8 +77,6 @@ onMounted(async () => {
     <BackTop
       v-if="route.path !== '/'"
       :right="backTopProps.right"
-      :svgWidth="backTopProps.svgWidth"
-      :rotateDeg="-42"
     />
     <i
       v-if="!isPc && ['home', '/'].includes(route.path)"

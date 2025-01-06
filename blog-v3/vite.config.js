@@ -24,6 +24,8 @@ export default defineConfig({
     ],
     extensions: [".js", ".vue", ".json"],
   },
+  assetsInclude: ["**/*.cur"],
+
   // 按需导入element-plus main.js里不需要再引入了
   plugins: [
     vue(),
