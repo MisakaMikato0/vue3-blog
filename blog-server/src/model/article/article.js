@@ -51,13 +51,13 @@ const Article = seq.define(
       comment: "排序 1 最大 往后越小 用于置顶文章的排序",
     },
     status: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TINYINT,
       require: true,
       defaultValue: 1,
       comment: "文章状态  1 公开 2 私密 3 草稿箱",
     },
     type: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TINYINT,
       require: true,
       defaultValue: 1,
       comment: "文章类型 1 原创 2 转载 3 翻译",

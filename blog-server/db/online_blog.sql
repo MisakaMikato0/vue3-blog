@@ -66,20 +66,6 @@ CREATE TABLE `blog_category` (
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `category_name` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_2` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_3` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_4` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_5` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_6` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_7` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_8` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_9` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_10` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_11` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_12` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_13` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_14` (`category_name`) USING BTREE,
-  UNIQUE KEY `category_name_15` (`category_name`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
