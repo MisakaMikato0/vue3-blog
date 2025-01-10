@@ -57,7 +57,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
           rewrite: path => path.replace(/^\/api/, "")
         },
         "/blog-images": {
-          target: "http://mrzym.top:9000/blog-images",
+          target: "http://hakugyokurou.fun:9000/blog-images",
           changeOrigin: true,
           rewrite: path => path.replace(/^\/blog-images/, "")
         },

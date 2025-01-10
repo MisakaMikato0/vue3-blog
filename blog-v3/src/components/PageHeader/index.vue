@@ -11,10 +11,10 @@ import Tooltip from "../ToolTip/tooltip.vue";
 import GsapCount from "@/components/GsapCount/index";
 import HomeHeader from "./home-header.vue";
 import Waves from "@/components/WelcomeComps/waves.vue";
-import defaultBg from "@/assets/img/default.png";
 const staticStore = staticData();
 const { codeTheme, previewTheme, getPageHeaderList } = storeToRefs(staticStore);
 const route = useRoute();
+const baseUrl = 'http://img.hakugyokurou.fun/home-bg/';
 
 const props = defineProps({
   loading: {
@@ -68,7 +68,7 @@ const getBgCover = computed(() => {
   // 做一个根据路由来判断判断页面背景图片
   let url;
   // let myUrl = "http://img.mrzym.top/FvmVKfygxBKoJbFVXJwzjgAASL9S";
-  let myUrl = defaultBg
+  let myUrl = baseUrl + 'default.png';
   if (route.path == "/article") {
     url = props.article.article_cover || myUrl;
   } else if (props.bgUrl) {

@@ -93,12 +93,12 @@ onActivated(() => {
         :content="`切换成${getMessageTypeIsCard ? '弹幕' : '卡片'}模式`"
       >
         <template #reference>
-          <div class="message-title cursor-pointer !z-[9999]" @click="toggle">留言板</div>
+          <div class="message-title cursor-pointer !z-[999]" @click="toggle">留言板</div>
         </template>
       </el-popover>
     </template>
     <div class="message-header">
-      <div class="flex items-center !w-[100%] !h-[1.2rem] !z-[9999]">
+      <div class="flex items-center !w-[100%] !h-[1.2rem] !z-[999]">
         <TypeWriter
           class="type-writer"
           size="1.2rem"
@@ -109,7 +109,7 @@ onActivated(() => {
         <el-popover placement="top-start" :width="110" trigger="hover" content="点我去发表留言">
           <template #reference>
             <svg-icon
-              class="!z-[9999] cursor-pointer"
+              class="!z-[999] cursor-pointer"
               name="publish"
               :width="4"
               :height="4"
@@ -129,14 +129,14 @@ onActivated(() => {
       :content="`切换成${getMessageTypeIsCard ? '弹幕' : '卡片'}模式`"
     >
       <template #reference>
-        <div class="message-title cursor-pointer !z-[9999]" @click="toggle">留言</div>
+        <div class="message-title cursor-pointer !z-[999]" @click="toggle">留言</div>
       </template>
     </el-popover>
     <div class="!mt-[3rem] flex items-center">
       <transition name="down" mode="out-in">
         <el-input
           v-model="message"
-          class="!z-[9999] message-input !mr-[10px]"
+          class="!z-[999] message-input !mr-[10px]"
           placeholder="一定要留下点什么～"
           v-if="showMessageInput"
           :maxlength="555"
@@ -152,7 +152,7 @@ onActivated(() => {
         <el-popover placement="top-start" :width="110" trigger="hover" content="点击发送">
           <template #reference>
             <svg-icon
-              class="!z-[9999] cursor-pointer"
+              class="!z-[999] cursor-pointer"
               name="publish"
               :width="4"
               :height="4"

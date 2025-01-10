@@ -7,9 +7,9 @@ import { useNav } from "@/layout/hooks/useNav";
 import type { FormInstance } from "element-plus";
 import { useUserStoreHook } from "@/store/modules/user";
 import { useLayout } from "@/layout/hooks/useLayout";
-import { bg, avatar, illustration } from "./utils/static";
+import { bg } from "./utils/static";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
-import { ref, reactive, toRaw, onMounted, onBeforeUnmount } from "vue";
+import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
 import { useDataThemeChange } from "@/layout/hooks/useDataThemeChange";
 import { storageLocal } from "@pureadmin/utils";
 
@@ -24,11 +24,12 @@ type RuleFormType = {
   username?: string;
   password?: string;
 };
-
 const router = useRouter();
 const loading = ref(false);
 const ruleFormRef = ref<FormInstance>();
-
+const iconBaseUrl = 'http://img.hakugyokurou.fun/web-icon/'
+const avatar = iconBaseUrl + 'blogAvatar.png'
+const illustration = iconBaseUrl + 'illustration.png'
 const { initStorage } = useLayout();
 initStorage();
 
@@ -121,11 +122,11 @@ onBeforeUnmount(() => {
     </div>
     <div class="login-container">
       <div class="img">
-        <component :is="toRaw(illustration)" />
+        <img :src="illustration" alt="" class="illustration">
       </div>
       <div class="login-box">
         <div class="login-form">
-          <avatar class="avatar" />
+          <img :src="avatar" alt="" class="avatar">
           <Motion>
             <h2 class="outline-none">{{ title }}</h2>
           </Motion>
@@ -191,8 +192,8 @@ onBeforeUnmount(() => {
       </div>
     </div>
     <div class="filings">
-      <a class="change-color" href="http://beian.miit.gov.cn/" target="_blank"
-        >蜀ICP备2023007772号</a
+      <a class="change-color" href="https://beian.miit.gov.cn/" target="_blank"
+        >滇ICP备2025049803号</a
       >
     </div>
   </div>

@@ -6,8 +6,8 @@
   >
     <!-- eslint-disable-next-line -->
     <div class="footer-color my-face">&copy 幻想乡白玉楼 ღゝ◡╹)ノ♡</div>
-    <a class="footer-color change-color mt-[5px]" href="http://beian.miit.gov.cn/" target="_blank"
-      >幻想乡ICP备2023007772号</a
+    <a class="footer-color change-color mt-[5px]" href="https://beian.miit.gov.cn/" target="_blank"
+      >滇ICP备2025049803号</a
     >
     <!-- <div class="footer-color mt-[5px] flex justify-center flex-wrap">
       <a

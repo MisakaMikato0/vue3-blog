@@ -11,12 +11,11 @@ import { debounce } from "@/utils/tool";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { storeToRefs } from "pinia";
-import imgUrl1 from "@/assets/img/home-bg1.gif";
-import imgUrl2 from "@/assets/img/home-bg2.gif";
+
 const route = useRoute();
 const staticStore = staticData();
 const { getPageHeaderList } = storeToRefs(staticStore);
-
+const baseUrl = 'http://img.hakugyokurou.fun/home-bg/';
 const saying = ref([]);
 const showScrollBottom = ref(true);
 
@@ -70,7 +69,7 @@ const getBgCover = computed(() => {
   const bgList = getPageHeaderList.value;
   // 做一个根据路由来判断判断页面背景图片
   let url;
-  let myUrl = imgUrl1;
+  let myUrl = baseUrl + 'home-bg1.gif';
 
   let index = bgList.findIndex((bg) => bg.route_name == route.name);
   url = index == -1 ? myUrl : bgList[index].bg_url;
@@ -104,7 +103,7 @@ onBeforeUnmount(() => {
     <!-- 从后台获取静态图片-->
     <!-- <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image> -->
      <!-- 使用gif -->
-    <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="imgUrl2"></el-image>
+    <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="baseUrl + 'home-bg2.gif'"></el-image>
     <div class="font startWork">白玉楼</div>
     <!-- <TypeWriter class="type-writer" size="1.5em" :typeList="saying"></TypeWriter> -->
     <Typed

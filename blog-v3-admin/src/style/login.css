@@ -23,6 +23,12 @@
 
 .img img {
   width: 500px;
+  height: auto;
+
+}
+
+img.illustration {
+  width: 500px;
 }
 
 .login-box {
@@ -33,11 +39,15 @@
 
 .login-form {
   width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .avatar {
-  width: 350px;
-  height: 80px;
+  width: 200px;
+  height: auto;
+  align-self: center;
 }
 
 .login-form h2 {
@@ -66,8 +76,7 @@
   }
 
   .avatar {
-    width: 280px;
-    height: 80px;
+    width: 150px;
   }
 }
 

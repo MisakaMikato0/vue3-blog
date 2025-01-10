@@ -5,7 +5,7 @@
  */
 
 import { reactive, computed } from "vue";
-import blogAvatar from "@/assets/img/blogAvatar.jpg";
+import blogAvatar from "@/assets/img/blogAvatar.png";
 // 歌曲工具
 import {
   MODELLIST,

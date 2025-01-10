@@ -5,9 +5,9 @@ import { message } from "@/utils/message";
 import { useNav } from "@/layout/hooks/useNav";
 import type { FormInstance } from "element-plus";
 import { useLayout } from "@/layout/hooks/useLayout";
-import { bg, avatar, illustration } from "../login/utils/static";
+import { bg } from "../login/utils/static";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
-import { ref, reactive, toRaw, onMounted, onBeforeUnmount } from "vue";
+import { ref, reactive, onMounted, onBeforeUnmount } from "vue";
 import { useDataThemeChange } from "@/layout/hooks/useDataThemeChange";
 
 import dayIcon from "@/assets/svg/day.svg?component";
@@ -20,7 +20,9 @@ import { registerUser } from "@/api/user";
 const router = useRouter();
 const loading = ref(false);
 const ruleFormRef = ref<FormInstance>();
-
+const iconBaseUrl = 'http://img.hakugyokurou.fun/web-icon/'
+const avatar = iconBaseUrl + 'blogAvatar.png'
+const illustration = iconBaseUrl + 'illustration.png'
 const { initStorage } = useLayout();
 initStorage();
 
@@ -142,11 +144,11 @@ onBeforeUnmount(() => {
     </div>
     <div class="login-container">
       <div class="img">
-        <component :is="toRaw(illustration)" />
+        <img :src="illustration" alt="" class="illustration">
       </div>
       <div class="login-box">
         <div class="login-form">
-          <avatar class="avatar" />
+          <img :src="avatar" alt="" class="avatar">
           <Motion>
             <h2 class="outline-none">{{ title }}</h2>
           </Motion>

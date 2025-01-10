@@ -8,7 +8,7 @@ import { defineComponent, ref, watch, provide, onBeforeUnmount } from "vue";
 
 import MusicList from "./list/index.vue";
 import MusicControl from "./controls/index.vue";
-import blogAvatar from "@/assets/img/blogAvatar.jpg";
+import blogAvatar from "@/assets/img/blogAvatar.png";
 import useMusic from "./useMusic.js";
 
 import { useRoute } from "vue-router";

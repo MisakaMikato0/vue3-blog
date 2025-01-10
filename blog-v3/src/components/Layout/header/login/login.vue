@@ -6,7 +6,7 @@ import { reqLogin, reqRegister, getUserInfoById } from "@/api/user";
 
 import { user } from "@/store/index.js";
 import { getWelcomeSay, _getLocalItem, _setLocalItem, _removeLocalItem } from "@/utils/tool";
-import blogAvatar from "@/assets/img/blogAvatar.jpg";
+import blogAvatar from "@/assets/img/blogAvatar.png";
 
 // 本地数据加密解密
 import { _encrypt, _decrypt } from "@/utils/encipher";
@@ -245,7 +245,7 @@ watch(
 </script>
 
 <template>
-  <el-dialog v-model="showDialog" width="120" :before-close="handleClose">
+  <el-dialog v-model="showDialog" class="login-dialog" width="120" :before-close="handleClose">
     <template #header>
       <h1>{{ isLogin ? "登录" : "注册" }}</h1>
     </template>
@@ -347,6 +347,9 @@ watch(
 </template>
 
 <style lang="scss" scoped>
+.login-dialog {
+  z-index: 999;
+}
 .login-register {
   &-form {
     width: 100%;
