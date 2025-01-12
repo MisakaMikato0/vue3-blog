@@ -253,7 +253,7 @@ export const returnTime = (time) => {
  * @param {*} file 图片
  * @param {*} size 文件压缩至大小 实际上可能压缩不到 有可能会更小
  */
-export const imageConversion = (file, size = 800, quality = 1, maxTime = 3) => {
+export const imageConversion = (file, size = 800, quality = 0.9, maxTime = 3) => {
   return new Promise((resolve) => {
     try {
       const reader = new FileReader();
@@ -266,25 +266,37 @@ export const imageConversion = (file, size = 800, quality = 1, maxTime = 3) => {
           const ctx = canvas.getContext("2d");
           let width = image.width;
           let height = image.height;
-          width = image.width;
-          height = image.height;
+
+          // 根据最大尺寸调整宽高
+          if (width > size || height > size) {
+            if (width > height) {
+              height = Math.round((height * size) / width);
+              width = size;
+            } else {
+              width = Math.round((width * size) / height);
+              height = size;
+            }
+          }
+
           canvas.width = width;
           canvas.height = height;
           ctx.drawImage(image, 0, 0, width, height);
-          let dataURL = canvas.toDataURL(file.type, quality);
-          // 在有限的时间内压缩
-          while (maxTime && quality > 0.2) {
-            if (Math.round(dataURL.length) / 1024 > size) {
+
+          let mime = file.type === "image/png" ? "image/jpeg" : file.type;
+          let dataURL = canvas.toDataURL(mime, quality);
+
+          // 压缩逻辑
+          while (maxTime > 0 && quality > 0.2) {
+            if (Math.round(dataURL.length / 1024) > size) {
+              quality -= 0.1;
+              dataURL = canvas.toDataURL(mime, quality);
               maxTime--;
-              quality -= 0.2;
-              dataURL = canvas.toDataURL(file.type, quality);
             } else {
               break;
             }
           }
 
           const arr = dataURL.split(",");
-          let mime = arr[0].match(/:(.*?);/)[1];
           const bstr = atob(arr[1]);
           let n = bstr.length;
           const u8arr = new Uint8Array(n);
@@ -292,7 +304,6 @@ export const imageConversion = (file, size = 800, quality = 1, maxTime = 3) => {
             u8arr[n] = bstr.charCodeAt(n);
           }
 
-          mime = file.type;
           resolve(
             new Blob([u8arr], {
               type: mime,
@@ -305,3 +316,4 @@ export const imageConversion = (file, size = 800, quality = 1, maxTime = 3) => {
     }
   });
 };
+
