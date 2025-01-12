@@ -226,5 +226,6 @@ onBeforeUnmount(() => {
   left: 50%;
   z-index: 999;
   transform: translate(-50%, -50%);
+  padding:0 5px;
 }
 </style>

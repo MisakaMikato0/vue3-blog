@@ -189,12 +189,12 @@ const toRegister = () => {
 
 // 提交
 const submit = async () => {
-  ElNotification({
-    offset: 60,
-    title: "摆了～",
-    message: h("div", { style: "font-weight: 600;" }, "别点了，没有"),
-  });
-  return;
+  // ElNotification({
+  //   offset: 60,
+  //   title: "摆了～",
+  //   message: h("div", { style: "font-weight: 600;" }, "别点了，没有"),
+  // });
+  // return;
   if (isLogin.value) {
     userLogin();
   } else {

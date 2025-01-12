@@ -98,6 +98,14 @@ const routes = [
         component: () => import("@/views/talk/talk.vue"),
       },
       {
+        path: "/bangumi",
+        name: "Bangumi",
+        meta: {
+          name: "追番",
+        },
+        component: () => import("@/views/bangumi/article-list.vue"),
+      },
+      {
         path: "/link",
         name: "link",
         meta: {

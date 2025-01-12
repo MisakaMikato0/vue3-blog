@@ -11,6 +11,7 @@ const http = axios.create({
     // 设置后端需要的传参类型
     "Content-Type": "application/json",
     "X-Requested-With": "XMLHttpRequest",
+    "Cache-Control": "max-age=3600",// 1小时
   },
 });
 

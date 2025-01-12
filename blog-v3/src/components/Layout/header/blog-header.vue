@@ -130,6 +130,7 @@ onBeforeUnmount(() => {
           <!-- <el-menu-item index="/tag"><i class="iconfont icon-label_fill"></i> 标签</el-menu-item> -->
           <el-menu-item index="/photoAlbum"> <span class="header-title">回忆录</span></el-menu-item>
           <el-menu-item index="/talk"><span class="header-title">说说</span> </el-menu-item>
+          <el-menu-item index="/bangumi"><span class="header-title">追番</span> </el-menu-item>
           <el-menu-item index="/link/list"><span class="header-title">友链</span> </el-menu-item>
           <el-menu-item index="/message/list"><span class="header-title">留言</span> </el-menu-item>
           <el-sub-menu index="/resources" class="header-more">
@@ -237,6 +238,8 @@ onBeforeUnmount(() => {
             <el-menu-item index="/talk"
               ><i class="iconfont icon-speechbubble"></i> 说说</el-menu-item
             >
+            <el-menu-item index="/bangumi"><i class="iconfont icon-bilibili-line"></i>追番 </el-menu-item>
+
             <el-menu-item index="/link/list"
               ><i class="iconfont icon-pengyouquan"></i> 友链</el-menu-item
             >

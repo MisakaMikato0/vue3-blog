@@ -6,47 +6,27 @@ import { imageConversion } from "@/utils/tool";
 
 /** 登录 */
 export const reqLogin = (data) => {
-  return new Promise((resolve, reject) => {
-    http.post("/api/user/login", data).then((res) => {
-      resolve(res);
-    });
-  });
+  return http.post("/user/login", data);
 };
 
 /** 注册 */
 export const reqRegister = (data) => {
-  return new Promise((resolve, reject) => {
-    http.post("/api/user/register", data).then((res) => {
-      resolve(res);
-    });
-  });
+  return http.post("/user/register", data);
 };
 
 /** 用户修改个人信息 */
 export const updateUserInfo = (data) => {
-  return new Promise((resolve, reject) => {
-    http.put("/api/user/updateOwnUserInfo", data).then((res) => {
-      resolve(res);
-    });
-  });
+  return http.put("/user/updateOwnUserInfo", data);
 };
 
 /** 用户修改密码 */
 export const updateUserPassword = (data) => {
-  return new Promise((resolve, reject) => {
-    http.put("/api/user/updatePassword", data).then((res) => {
-      resolve(res);
-    });
-  });
+  return http.put("/user/updatePassword", data);
 };
 
 /** 获取当前登录人的信息 */
 export const getUserInfoById = (id) => {
-  return new Promise((resolve, reject) => {
-    http.get("/api/user/getUserInfoById/" + id, {}).then((res) => {
-      resolve(res);
-    });
-  });
+  return http.get(`/user/getUserInfoById/${id}`);
 };
 
 /** 图片上传 */
@@ -74,18 +54,10 @@ export const imgUpload = async (data) => {
   formData.append("file", res);
   const userStore = user();
 
-  return new Promise((resolve) => {
-    http
-      .post("/api/upload/img", formData, {
-        config: {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            "Authorization": userStore.getToken,
-          },
-        },
-      })
-      .then((res) => {
-        resolve(res);
-      });
+  return http.post("/upload/img", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      "Authorization": userStore.getToken,
+    },
   });
 };
