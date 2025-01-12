@@ -44,6 +44,7 @@
   --wave-two-color: rgba(248, 237, 252, 0.5);
   --wave-three-color: rgba(248, 237, 252, 0.3);
   --wave-four-color: rgba(248, 237, 252, 1);
+  --bangumi-color: #333;
 }
 
 html.dark {
@@ -55,9 +56,10 @@ html.dark {
   --home-mask-color: rgba(0, 0, 0, 0.4);
   --music-main-bg: #303030;
   // --menu-color: var(--font-color);
-
+  --bangumi-color: #b8b8b8;
   --button-linear-gradient: linear-gradient(300deg, #ffb9f3 0%, #fa1fc3 100%);
   --button-linear-gradient-h: linear-gradient(300deg, #fa1fc3 0%, #ffb9f3 100%);
+  --title-font: black;
 
   --wave-one-color: rgba(17, 17, 17, 0.7);
   --wave-two-color: rgba(17, 17, 17, 0.5);

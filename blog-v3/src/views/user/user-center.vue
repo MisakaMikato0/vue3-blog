@@ -53,6 +53,7 @@ const infoForm = reactive({
   nick_name: "", // 昵称
   avatar: "", // 头像
   avatarList: [], // 头像列表
+  email: "", // 邮箱
 });
 const primaryinfoForm = reactive({ ...infoForm });
 
@@ -113,6 +114,7 @@ const updateInfo = async () => {
             infoForm.avatar = url;
           }
         }
+        console.log(infoForm, "infoForm");
         const res = await updateUserInfo(infoForm);
         if (res && res.code == 0) {
           ElNotification({
@@ -209,6 +211,16 @@ onMounted(async () => {
                 clearable
               />
             </el-form-item>
+            <el-form-item label="邮箱" prop="email">
+              <span v-if="infoPreview"> {{ infoForm.email }}</span>
+              <el-input
+                v-else
+                v-model="infoForm.email"
+                :style="{ width: '220px' }"
+                placeholder="请输入邮箱"
+                clearable
+              />
+            </el-form-item>
           </el-form>
           <div class="pos">
             <el-button v-if="infoPreview" class="apply-button" @click="infoPreview = false"
@@ -299,7 +311,7 @@ onMounted(async () => {
 }
 
 .cancel {
-  color: rgb(255, 118, 118);
+  color: #fff;
 }
 
 :deep(.el-form-item) {

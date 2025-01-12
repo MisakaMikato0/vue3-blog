@@ -58,6 +58,7 @@ const registerForm = reactive({
   password1: "", // 密码
   password2: "", // 确认密码
   nick_name: "", // 昵称
+  email: "", // 邮箱
 });
 const primaryRegisterForm = reactive({ ...registerForm });
 const isLogin = ref(true);
@@ -94,7 +95,9 @@ const userRegister = async () => {
         username: registerForm.username,
         password: registerForm.password1,
         nick_name: registerForm.nick_name,
+        email: registerForm.email + "@qq.com",
       };
+      console.log(register,'yx');
       const res = await reqRegister(register);
       if (res && res.code == 0) {
         // 自动登录
@@ -315,6 +318,14 @@ watch(
             placeholder="请输入昵称"
             clearable
           />
+        </el-form-item>
+        <el-form-item>
+          <el-input
+            v-model="registerForm.email"
+            :style="{ width: '100%' }"
+            placeholder="请输入邮箱"
+            clearable
+          ><template #append>@qq.com</template></el-input>
         </el-form-item>
         <el-form-item prop="password1">
           <el-input

@@ -336,27 +336,6 @@ CREATE TABLE `blog_user` (
   `ip` varchar(255) DEFAULT '' COMMENT 'ip属地',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `username` (`username`) USING BTREE,
-  UNIQUE KEY `username_2` (`username`) USING BTREE,
-  UNIQUE KEY `username_3` (`username`) USING BTREE,
-  UNIQUE KEY `username_4` (`username`) USING BTREE,
-  UNIQUE KEY `username_5` (`username`) USING BTREE,
-  UNIQUE KEY `username_6` (`username`) USING BTREE,
-  UNIQUE KEY `username_7` (`username`) USING BTREE,
-  UNIQUE KEY `username_8` (`username`) USING BTREE,
-  UNIQUE KEY `username_9` (`username`) USING BTREE,
-  UNIQUE KEY `username_10` (`username`) USING BTREE,
-  UNIQUE KEY `username_11` (`username`) USING BTREE,
-  UNIQUE KEY `username_12` (`username`) USING BTREE,
-  UNIQUE KEY `username_13` (`username`) USING BTREE,
-  UNIQUE KEY `username_14` (`username`) USING BTREE,
-  UNIQUE KEY `username_15` (`username`) USING BTREE,
-  UNIQUE KEY `username_16` (`username`) USING BTREE,
-  UNIQUE KEY `username_17` (`username`) USING BTREE,
-  UNIQUE KEY `username_18` (`username`) USING BTREE,
-  UNIQUE KEY `username_19` (`username`) USING BTREE,
-  UNIQUE KEY `username_20` (`username`) USING BTREE,
-  UNIQUE KEY `username_21` (`username`) USING BTREE,
-  UNIQUE KEY `username_22` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=522 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
 SET FOREIGN_KEY_CHECKS = 1;

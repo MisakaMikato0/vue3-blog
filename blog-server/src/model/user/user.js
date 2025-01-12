@@ -37,6 +37,12 @@ const User = seq.define(
       defaultValue: "",
       comment: "用户QQ 用于联系",
     },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: "",
+      comment: "用户邮箱 用于联系",
+    },
     ip: {
       type: DataTypes.STRING,
       allowNull: true,

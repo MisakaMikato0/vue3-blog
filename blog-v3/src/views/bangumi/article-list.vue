@@ -103,7 +103,7 @@ onMounted(() => {
             <div v-for="i in 4" :key="i">
               <SkeletonItem variant="image" width="100%" height="6rem" />
               <SkeletonItem variant="text" width="50%" top="1rem" height="20px" />
-              <SkeletonItem variant="text" width="50%" top="1.5rem" height="15px" />
+              <SkeletonItem variant="text" width="50%" top="1rem" height="20px" />
             </div>
           </div>
         </template>
@@ -181,7 +181,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .bangumi-menu {
   .el-menu-item {
-    color: #333;
+    color: var(--bangumi-color);
   }
 }
 .bangumi-list {
@@ -224,7 +224,7 @@ onMounted(() => {
       
       .bangumi-title {
         font-size: 1.2rem;
-        color: #333;
+        color: var(--bangumi-color);
         display: flex;
         align-items: center;
         .bangumi-title-name:hover {
@@ -242,6 +242,9 @@ onMounted(() => {
           background-color: var(--title-font);
           border-radius: 5px;
           font-size: 1rem;
+          span {
+            color: var(--bangumi-color);
+          }
          
         }
       }
@@ -261,12 +264,23 @@ onMounted(() => {
 .skeleton-item {
   margin-top: 1rem;
 }
+html.dark {
+  .bangumi-list {
+    .bangumi-info {
+      .bangumi-progress {
+        .bangumi-progress-text {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .bangumi-list {
     padding: 10px 15px;
     .bangumi-menu {
       .el-menu-item {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 0 8px;
       }
     }
@@ -299,6 +313,12 @@ onMounted(() => {
           font-size: 0.8rem;
         }
       }
+    }
+  }
+  .el-menu--horizontal {
+    .el-menu-item {
+      color: var(--bangumi-color);
+
     }
   }
 }

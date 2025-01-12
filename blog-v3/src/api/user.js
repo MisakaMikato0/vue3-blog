@@ -54,7 +54,7 @@ export const imgUpload = async (data) => {
   formData.append("file", res);
   const userStore = user();
 
-  return http.post("/upload/img", formData, {
+  return http.post("api/upload/img", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
       "Authorization": userStore.getToken,

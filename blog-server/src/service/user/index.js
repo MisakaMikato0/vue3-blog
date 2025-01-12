@@ -11,14 +11,14 @@ class UserService {
    * @param {*} user
    */
   async createUser(user) {
-    let { username, password, nick_name, qq } = user;
+    let { username, password, nick_name, email } = user;
 
     // 过滤敏感词
     nick_name = await filterSensitive(nick_name);
     // 随机生成昵称
     nick_name = nick_name ? nick_name : randomNickname("幽幽子的迷弟");
-    const avatar = "http://mrzym.top/online/9bb507f4bd065759a3d093d04.webp";
-    const res = await User.create({ username, password, nick_name, qq, avatar, role: 2 });
+    const avatar = `https://q2.qlogo.cn/headimg_dl?dst_uin=${email}&spec=640`;
+    const res = await User.create({ username, password, nick_name, email, avatar, role: 2 });
 
     return res.dataValues;
   }
@@ -30,9 +30,9 @@ class UserService {
    * @returns
    */
   async updateOwnUserInfo(id, user) {
-    let { avatar, nick_name, qq } = user;
+    let { avatar, nick_name, qq, email } = user;
     nick_name = await filterSensitive(nick_name);
-    const res = await User.update({ avatar, nick_name, qq }, { where: { id } });
+    const res = await User.update({ avatar, nick_name, qq, email }, { where: { id } });
     return res[0] > 0 ? true : false;
   }
 

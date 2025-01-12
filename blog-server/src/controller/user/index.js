@@ -24,6 +24,7 @@ class userController {
       ctx.body = result("用户注册成功", {
         id: res.id,
         username: res.username,
+        email: res.email,
       });
     } catch (err) {
       console.error(err);
@@ -37,7 +38,7 @@ class userController {
   async updateOwnUserInfo(ctx) {
     try {
       const { id } = ctx.state.user;
-      const { avatar } = ctx.request.body;
+      const { avatar, email } = ctx.request.body;
 
       let one = await getOneUserInfo({ id });
       // 服务器删除原来的头像
@@ -52,6 +53,9 @@ class userController {
         if (UPLOADTYPE == "minio") {
           await deleteMinioImgs([one.avatar.split("/").pop()]);
         }
+      } else {
+        const avatar = `https://q2.qlogo.cn/headimg_dl?dst_uin=${email}&spec=640`;
+        ctx.request.body.avatar = avatar;
       }
 
       const res = await updateOwnUserInfo(id, ctx.request.body);
