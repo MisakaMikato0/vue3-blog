@@ -6,27 +6,27 @@ import { imageConversion } from "@/utils/tool";
 
 /** 登录 */
 export const reqLogin = (data) => {
-  return http.post("/user/login", data);
+  return http.post("/api/user/login", data);
 };
 
 /** 注册 */
 export const reqRegister = (data) => {
-  return http.post("/user/register", data);
+  return http.post("/api/user/register", data);
 };
 
 /** 用户修改个人信息 */
 export const updateUserInfo = (data) => {
-  return http.put("/user/updateOwnUserInfo", data);
+  return http.put("/api/user/updateOwnUserInfo", data);
 };
 
 /** 用户修改密码 */
 export const updateUserPassword = (data) => {
-  return http.put("/user/updatePassword", data);
+  return http.put("/api/user/updatePassword", data);
 };
 
 /** 获取当前登录人的信息 */
 export const getUserInfoById = (id) => {
-  return http.get(`/user/getUserInfoById/${id}`);
+  return http.get(`/api/user/getUserInfoById/${id}`);
 };
 
 /** 图片上传 */

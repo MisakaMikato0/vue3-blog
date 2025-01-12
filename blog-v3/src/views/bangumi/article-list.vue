@@ -134,7 +134,7 @@ onMounted(() => {
                     </div>
                   </div>
                   <div class="short_summary">
-                    <span>{{ item?.subject?.short_summary }}</span>
+                    <span>{{ item?.subject?.short_summary }}...</span>
                   </div>
                   <div class="bangumi-progress">
                     <el-progress
