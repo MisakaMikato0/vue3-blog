@@ -28,7 +28,7 @@ const props = defineProps({
 const inputCommentRef = ref("");
 const showPublish = ref(false);
 const currentIndex = ref(0);
-
+const isFocused = ref(false);
 // 输入完成
 const inputComment = debounce(() => {
   emit("update:inputText", inputCommentRef.value.innerHTML);
@@ -37,9 +37,15 @@ const inputComment = debounce(() => {
 const keepIndex = () => {
   currentIndex.value = getCurrentIndex();
 };
-
+const blurComment = () => {
+  console.log("blurComment");
+  isFocused.value = false;
+  // currentIndex.value = getCurrentIndex();
+};
 // 当鼠标点入输入框做的事情
 const focusComment = () => {
+  console.log("focusComment");
+  isFocused.value = true;
   showPublish.value = true;
 };
 
@@ -101,13 +107,14 @@ defineExpose({
           parent ? 'parent-input-inputText' : 'children-input-inputText',
           'input-inputText',
           '!mt-[5px]',
+          { focused: isFocused },
         ]"
         :style="{ '--size': parent ? '1.2rem' : '1rem' }"
         rows="3"
         cols="20"
         @input="inputComment(val)"
         @focus="focusComment"
-        @blur="keepIndex"
+        @blur="blurComment"
         @click="keepIndex"
         placeholder="期待能留下你的脚印~"
       ></div>
@@ -150,7 +157,12 @@ defineExpose({
   color: var(--comment-grey);
   font-weight: 700;
 }
-
+.comment-content.focused {
+  background-image: url('https://i.miji.bid/2025/01/13/abe34b6540f855ea2a28d4e7e2b68b65.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 120px 100%; 
+}
 .publish-btn {
   background-color: var(--primary);
   border: none;
@@ -225,5 +237,8 @@ defineExpose({
     height: 1.5rem;
     padding: 0 0.5rem;
   }
+  .comment-content.focused {
+  background-size: 100px 100%; 
+}
 }
 </style>

@@ -103,7 +103,7 @@ const routes = [
         meta: {
           name: "追番",
         },
-        component: () => import("@/views/bangumi/article-list.vue"),
+        component: () => import("@/views/bangumi/bangumi-list.vue"),
       },
       {
         path: "/link",

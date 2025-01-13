@@ -9,6 +9,7 @@ import PageHeader from "@/components/PageHeader/index.vue";
 const bangumiList = ref([]);
 const Name = ref('');
 const loading = ref(false);
+const type = ref('null');
 let param = reactive({
   size: 1, // 当前页
   limit: 8, // 每页条目数
@@ -43,7 +44,7 @@ const getBangumiCollections = async (userName, status) => {
   let res;
   loading.value = true;
 
-  res = await getBangumiCollection({userName: userName}, {...status, limit: 8});
+  res = await getBangumiCollection({userName: userName}, {...status, limit: 8, type: type.value !== 'null' ? type.value : undefined});
   if (res) {
     loading.value = false;
     bangumiList.value = res.data.data;
@@ -66,6 +67,7 @@ const getBangumiUserInfos = async () => {
 const activeIndex = ref('null')
 const handleSelect = (key, keyPath) => {
   param.size = 1;
+  type.value = key;
   if(key === 'null') {
     getBangumiCollections(Name.value)
   } else {
@@ -280,7 +282,7 @@ html.dark {
     padding: 10px 15px;
     .bangumi-menu {
       .el-menu-item {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 0 8px;
       }
     }
