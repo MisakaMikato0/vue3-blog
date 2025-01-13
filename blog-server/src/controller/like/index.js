@@ -12,7 +12,7 @@ class HeaderController {
    */
   async addLike(ctx) {
     try {
-      let ip = ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For") || ctx.ip;
+      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ip = ip.split(":").pop();
       const { for_id, type, user_id } = ctx.request.body;
       if (!for_id) {
@@ -71,7 +71,7 @@ class HeaderController {
   async cancelLike(ctx) {
     try {
       const { for_id, type, user_id } = ctx.request.body;
-      let ip = ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For") || ctx.ip;
+      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ip = ip.split(":").pop();
       if (!for_id) {
         return ctx.app.emit("error", throwError(errorCode, "取消点赞对象不能为空"), ctx);
@@ -126,7 +126,7 @@ class HeaderController {
   async getIsLikeByIdOrIpAndType(ctx) {
     try {
       const { for_id, type, user_id } = ctx.request.body;
-      let ip = ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For") || ctx.ip;
+      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ip = ip.split(":").pop();
       if (!for_id) {
         return ctx.app.emit("error", throwError(errorCode, "取消点赞对象不能为空"), ctx);
