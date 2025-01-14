@@ -25,7 +25,7 @@ class ArticleService {
   async updateUrl() {
     let res = await Article.findAll();
     res.forEach(async (v) => {
-      v.dataValues.article_cover = v.dataValues.article_cover.replace("http://img.mrzym.top/", "http://mrzym.top/online/");
+      v.dataValues.article_cover = v.dataValues.article_cover.replace("http://img.hakugyokurou.fun/", "http://www.hakugyokurou.fun/online/");
       await Article.update(v.dataValues, {
         where: {
           id: v.dataValues.id,

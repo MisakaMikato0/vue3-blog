@@ -36,7 +36,7 @@
 
 博客前台基于 vue3、element plus、pinia、axios、vue-router、vue-cli、vue-use、npm、scss 等主流技术
 
-前台线上预览地址：<http://mrzym.top>
+前台线上预览地址：<http://www.hakugyokurou.fun>
 
 gitee 仓库地址：<https://gitee.com/mrzym/blog-v3>
 
@@ -44,7 +44,7 @@ gitee 仓库地址：<https://gitee.com/mrzym/blog-v3>
 
 博客管理后台基于 pureadmin、vue3、element plus、pinia、axios、vue-router、vue-use、pnpm、vite、sass、tailwindcss 等主流技术
 
-后台线上预览地址：<http://mrzym.top/admin>
+后台线上预览地址：<http://www.hakugyokurou.fun/admin>
 
 gitee 仓库地址： <https://gitee.com/mrzym/blog-v3-admin>
 
@@ -87,8 +87,8 @@ tips：.env文件下可以配置项目的上传文件方式，local为本地上�
 ## 🌈 部署
 
 博客的部署教程
-文章地址：http://mrzym.top/#/article?id=6
-分类地址：<http://mrzym.top/#/articleList?id=2&type=category&name=%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2>
+文章地址：http://www.hakugyokurou.fun/#/article?id=6
+分类地址：<http://www.hakugyokurou.fun/#/articleList?id=2&type=category&name=%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2>
 
 博客后端接口的 swagger 地址为 localhost:8888/swagger node 写接口文档太慢了 所以我只写了一部分重要的接口 这里我平时都是用 apiFox 测试的 分享一下我的 apiFox 链接 里面有测试用例可以尝试 如果有字段不清楚的 可以看一看数据库里的字段 都有注释的 blog-server 里 model 层也有具体的注释
 

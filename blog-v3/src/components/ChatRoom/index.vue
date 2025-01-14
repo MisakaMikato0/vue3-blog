@@ -110,7 +110,7 @@ const initWebsocket = async (isReconnect = false) => {
     websocket = null;
   }
 
-  websocket = new WebSocket("ws://mrzym.top/ws/");
+  websocket = new WebSocket("wss://www.hakugyokurou.fun/ws/");
   // websocket = new WebSocket("ws://localhost:8889/");
 
   if (websocket) {
@@ -657,7 +657,7 @@ onBeforeUnmount(() => {
 .blog-chat-btn {
   position: fixed;
   right: 0px;
-  bottom: 120px;
+  bottom: 220px;
   width: 40px;
   height: 40px;
   border-radius: 20px;

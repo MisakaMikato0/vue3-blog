@@ -36,7 +36,6 @@ export const addView = () => {
 /** 图片上传接口 */
 export const imgUpload = async data => {
   // 文件压缩 太大了上传不了，我的服务器比较垃圾
-  console.log(data, "data");
   let res;
   // 没有raw.size 就表示已经压缩过了（多图片上传那里我压缩了一次） 有的话小于800不用压缩
   if (data.raw.size / 1024 > 820) {
@@ -51,7 +50,6 @@ export const imgUpload = async data => {
     res = data.raw;
   }
 
-  console.log(res, "res");
   const formData = new FormData();
   formData.append("file", res);
   const token = getToken();

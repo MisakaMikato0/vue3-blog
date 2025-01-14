@@ -159,7 +159,7 @@ onBeforeUnmount(() => {
               :style="{
                 zIndex: 1,
                 backgroundImage: `url(${
-                  item.site_avatar || 'http://img.mrzym.top/FgTOrGUz5WJwswSLhPsiGL4DOXe3'
+                  item.site_avatar || 'http://img.www.hakugyokurou.fun/FgTOrGUz5WJwswSLhPsiGL4DOXe3'
                 })`,
               }"
               class="site-item site-mask"

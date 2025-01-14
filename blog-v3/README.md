@@ -47,7 +47,7 @@
 
 博客前台基于 vue3、element plus、pinia、axios、vue-router、vite、vue-use、npm、scss、tailwind.css 等主流技术
 
-前台线上预览地址：<http://mrzym.top>
+前台线上预览地址：<http://www.hakugyokurou.fun>
 
 gitee 仓库地址：<https://gitee.com/mrzym/blog-v3>
 
@@ -55,7 +55,7 @@ gitee 仓库地址：<https://gitee.com/mrzym/blog-v3>
 
 博客管理后台基于 pureadmin、vue3、element plus、pinia、axios、vue-router、vue-use、pnpm、vite、sass、tailwindcss 等主流技术
 
-后台线上预览地址：<http://mrzym.top/admin>
+后台线上预览地址：<http://www.hakugyokurou.fun/admin>
 
 gitee 仓库地址： <https://gitee.com/mrzym/blog-v3-admin>
 
@@ -117,7 +117,7 @@ pnpm run serve
 
 博客文章会出一系列的部署教程
 
-教程地址：<http://mrzym.top/#/articleList?id=2&type=category&name=%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2>
+教程地址：<http://www.hakugyokurou.fun/#/articleList?id=2&type=category&name=%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2>
 
 ## 🥰感谢
 

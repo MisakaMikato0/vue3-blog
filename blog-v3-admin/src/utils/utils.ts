@@ -42,6 +42,11 @@ export const imageConversion = async (
     return new Blob([u8arr], { type: mimeType });
   };
 
+  // 如果是 GIF 格式，直接返回 Blob
+  if (file.type === "image/gif") {
+    return file;
+  }
+
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
@@ -99,4 +104,5 @@ export const imageConversion = async (
     reader.readAsDataURL(file);
   });
 };
+
 

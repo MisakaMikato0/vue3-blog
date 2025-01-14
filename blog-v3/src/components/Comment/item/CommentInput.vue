@@ -161,7 +161,7 @@ defineExpose({
   background-image: url('https://i.miji.bid/2025/01/13/abe34b6540f855ea2a28d4e7e2b68b65.png');
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 120px 100%; 
+  background-size: auto 100%; 
 }
 .publish-btn {
   background-color: var(--primary);

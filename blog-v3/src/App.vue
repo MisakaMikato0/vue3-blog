@@ -28,31 +28,33 @@ const goBack = () => {
   router.go(-1);
 };
 
+// 优化通知显示的公共方法
+const showNotification = (title, message, options = {}) => {
+  ElNotification({
+    offset: 60,
+    title,
+    message: h("div", { style: options.style || "font-weight: 600;" }, message),
+    ...options
+  });
+};
+
 // 获取所有的网站页面背景图
 const getAllPageHeaderBg = async () => {
   const res = await getAllPageHeader();
-  if (res.code == 0) {
+  if (res.code === 0) {
     staticData().setPageHeaderLIst(res.result);
   } else {
-    ElNotification({
-      offset: 60,
-      title: "错误提示",
-      message: h("div", { style: "color: #f56c6c; font-weight: 600;" }, res.message),
+    showNotification("错误提示", res.message, {
+      style: "color: #f56c6c; font-weight: 600;"
     });
   }
 };
 
 const welcome = () => {
-  // 欢迎
-  let msg = getWelcomeSay(getUserInfo.value.nick_name);
-  if (getUserInfo.value.id == 3) {
-    msg = "小婷光临，真是三生有幸";
-  }
-  ElNotification({
-    offset: 60,
-    title: "欢迎～",
-    message: h("div", { style: "font-weight: 600;" }, msg),
-  });
+  const msg = getUserInfo.value.id === 3 
+    ? "小婷光临，真是三生有幸" 
+    : getWelcomeSay(getUserInfo.value.nick_name);
+  showNotification("欢迎～", msg);
 };
 
 onMounted(async () => {
@@ -83,12 +85,12 @@ onMounted(async () => {
       class="iconfont icon-fanhui"
       @click="goBack"
     ></i>
-    <!-- <MusicPlayer /> -->
+    <MusicPlayer />
     <div class="switch-box">
       <SwitchTheme />
     </div>
 
-    <!-- <ChatRoom :isPc="isPc" v-if="route.path !== '/'" /> -->
+    <ChatRoom :isPc="isPc" v-if="route.path !== '/'" />
   </div>
 </template>
 

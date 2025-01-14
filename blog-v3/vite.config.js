@@ -85,13 +85,13 @@ export default defineConfig({
       },
       // minio 代理
       "/blog-images": {
-        target: "http://mrzym.top:9000/blog-images",
+        target: "http://www.hakugyokurou.fun:9000/blog-images",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/blog-images/, ""),
       },
       "/wapi": {
         // 网易云的音乐代理
-        target: "http://mrzym.top:3000",
+        target: "http://8.137.51.98:3000",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/wapi/, ""),
       },
