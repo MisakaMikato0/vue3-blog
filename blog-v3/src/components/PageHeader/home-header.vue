@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
 <template>
   <div id="home">
     <!-- 从后台获取静态图片-->
-    <!-- <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image> -->
+    <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="getBgCover"></el-image>
      <!-- 使用gif -->
     <!-- <el-image class="bg !w-[100%] !h-[100%]" fit="cover" :src="baseUrl + 'home-bg2.gif'"></el-image> -->
     <div class="font startWork">白玉楼</div>

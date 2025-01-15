@@ -117,15 +117,15 @@ const {
               siteInfoForm.bilibili_link || "暂无bilibili"
             }}</span>
           </el-form-item>
-          <el-form-item label="github">
+          <el-form-item label="后台">
             <el-input
               v-if="isEditSiteInfo"
               v-model="siteInfoForm.github_link"
-              placeholder="请输入github链接"
+              placeholder="请输后台链接"
               clearable
               maxlength="225"
             />
-            <span v-else>{{ siteInfoForm.github_link || "暂无github" }}</span>
+            <span v-else>{{ siteInfoForm.github_link || "暂无后台" }}</span>
           </el-form-item>
         </el-card>
       </el-col>

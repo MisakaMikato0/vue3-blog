@@ -89,7 +89,7 @@ const operate = (op, val) => {
       @click="operate('openLink', configDetail.bilibili_link)"
     ></i>
     <i
-      class="iconfont icon-github-fill to_pointer"
+      class="iconfont icon-paper to_pointer"
       @click="operate('openLink', configDetail.github_link)"
     ></i>
 

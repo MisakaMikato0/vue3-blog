@@ -22,7 +22,7 @@ exports.getUserInfo = async () => {
 // 获取收藏番剧
 exports.collectBangumi = async (params, query) => {
 
-    const { subject_type = null, type = null, limit = 30, offset = 0 } = query;
+    const { subject_type = 1, type = null, limit = 30, offset = 0 } = query;
     const { userName } = params;
     // 检查 userName 是否存在
     if (!userName) {

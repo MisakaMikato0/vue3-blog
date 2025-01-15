@@ -232,6 +232,12 @@ onMounted(() => {
         .bangumi-title-name:hover {
           color: var(--second-font-color);
         }
+        .bangumi-title-name {
+          max-width: 200px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
         .bangumi-tags {
           display: flex;
           flex-wrap: wrap;

@@ -850,7 +850,7 @@ onBeforeUnmount(() => {
 
   .blog-chat-btn {
     right: 0px;
-    bottom: 100px;
+    bottom: 220px;
     width: 50px;
     height: 50px;
     border-radius: 25px;

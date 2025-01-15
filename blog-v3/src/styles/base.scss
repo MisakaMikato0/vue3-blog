@@ -87,13 +87,16 @@ div:focus {
   overflow: hidden;
   box-sizing: border-box;
 }
+
 // 主内容部分
 .main_box {
   box-sizing: border-box;
 }
+
 .blog_info {
   padding: 0 7.5px !important;
 }
+
 // 底部
 .footer_box {
   width: 100%;
@@ -111,14 +114,17 @@ div:focus {
   transition: all 0.5s;
   animation: fadeIn 1s;
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 // 给center_box加了一个向上移动的动画
 .center_box {
   animation: Up 1s;
@@ -129,6 +135,7 @@ div:focus {
     opacity: 0;
     transform: translateY(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0px);
@@ -143,23 +150,28 @@ div:focus {
     margin: 0 auto;
     min-height: calc(100vh - 128px);
   }
+
   .center_box {
     padding: 1.6rem 10px;
     margin: 0 auto;
     min-height: calc(100vh - 30rem);
   }
+
   .article_box {
     padding: 1.6rem 10px;
     margin: 0 auto;
     min-height: calc(100vh - 28rem);
   }
+
   .mobile_menu {
     height: 100%;
     padding: 0 10px;
   }
+
   .pc_menu {
     display: none;
   }
+
   .el-dialog {
     width: 100% !important;
     margin-top: 0 !important;
@@ -167,18 +179,22 @@ div:focus {
     margin-bottom: 0 !important;
     overflow: auto !important;
   }
+
   .mobile-affix {
     display: block;
     position: fixed;
     bottom: 30%;
     left: 0%;
+
     .icon-arrowright {
       font-size: 1.8rem;
     }
   }
+
   .recommend {
     height: 10rem;
   }
+
   .avatar-show {
     display: block;
   }
@@ -192,27 +208,33 @@ div:focus {
     margin: 0 auto;
     min-height: calc(100vh - 128px);
   }
+
   .center_box {
     padding: 2.8rem 10px;
-    max-width: 880px;
+    max-width: 980px;
     margin: 0 auto;
     min-height: calc(100vh - 30rem);
   }
+
   .article_box {
     padding: 2.8rem 10px;
     max-width: 1080px;
     margin: 0 auto;
     min-height: calc(100vh - 28rem);
   }
+
   .right-side-space {
     padding: 7.5px 1.875px !important;
   }
+
   .mobile_menu {
     display: none;
   }
+
   .pc_menu {
     padding: 0 20px;
   }
+
   .el-dialog {
     min-width: 30vw !important;
     margin-top: 15vh !important;
@@ -220,18 +242,23 @@ div:focus {
     overflow: auto !important;
     border-radius: 8px !important;
   }
+
   .mobile-affix {
     display: none;
   }
+
   .recommend {
     height: 12rem;
   }
+
   .avatar-show {
     display: none;
   }
+
   .mobile-top-card {
     display: none;
   }
+
   .mobile-bottom-card {
     display: none;
   }
@@ -242,22 +269,27 @@ div:focus {
   width: 4px;
   height: 4px;
 }
+
 ::scrollbar {
   width: 4px;
   height: 4px;
 }
+
 // 滚动条插槽
 ::-webkit-scrollbar-track {
   display: none;
 }
+
 ::scrollbar-track {
   display: none;
 }
+
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
   background: var(--font-color);
   border-radius: 1em;
 }
+
 ::scrollbar-thumb {
   border-radius: 1em;
 }
