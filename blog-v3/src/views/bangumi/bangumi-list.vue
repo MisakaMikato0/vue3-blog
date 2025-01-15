@@ -233,7 +233,7 @@ onMounted(() => {
           color: var(--second-font-color);
         }
         .bangumi-title-name {
-          max-width: 200px;
+          max-width: 400px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -263,6 +263,9 @@ onMounted(() => {
         .bangumi-progress-text {
           font-size: 1rem;
           color: #333;
+        }
+        .el-progress-bar__inner {
+          text-align: center;
         }
       }
     }
@@ -303,6 +306,7 @@ html.dark {
           .bangumi-title-name {
             font-size: 0.9rem;
             margin-right: 5px;
+            max-width: 145px;
           }
           .bangumi-tags{
             font-size: 0.7rem;

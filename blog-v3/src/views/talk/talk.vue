@@ -368,7 +368,7 @@ onBeforeUnmount(() => {
 .right {
   &-bottom-one {
     margin-top: 10px;
-    max-width: 260px;
+    max-width: 300px;
     height: 220px;
     display: grid;
     place-items: center;
