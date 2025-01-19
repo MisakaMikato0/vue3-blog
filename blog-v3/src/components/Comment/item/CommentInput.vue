@@ -38,26 +38,27 @@ const keepIndex = () => {
   currentIndex.value = getCurrentIndex();
 };
 const blurComment = () => {
-  console.log("blurComment");
   isFocused.value = false;
-  // currentIndex.value = getCurrentIndex();
+  currentIndex.value = getCurrentIndex();
 };
 // 当鼠标点入输入框做的事情
 const focusComment = () => {
-  console.log("focusComment");
   isFocused.value = true;
   showPublish.value = true;
 };
 
 const selectIcon = (val) => {
+  
   const text = val;
   if (currentIndex.value == inputCommentRef.value.innerHTML.length) {
+
     inputCommentRef.value.innerHTML += text;
   } else {
     // 拼接表情
     let input = inputCommentRef.value.innerHTML;
     let start = input.slice(0, currentIndex.value);
     let end = input.slice(currentIndex.value);
+    
     inputCommentRef.value.innerHTML = start + text + end;
   }
   // 每次拼接完就加一下下标 一个表情的长度是两个字节
@@ -167,6 +168,9 @@ defineExpose({
   background-color: var(--primary);
   border: none;
   font-weight: 700;
+  &:hover {
+    background-color: skyblue;
+  }
 }
 
 .clear-btn {
@@ -174,6 +178,9 @@ defineExpose({
   font-weight: 700;
   background-color: #efbcda;
   border: none;
+  &:hover {
+    background-color: darkred;
+  }
 }
 
 // pc
@@ -238,7 +245,7 @@ defineExpose({
     padding: 0 0.5rem;
   }
   .comment-content.focused {
-  background-size: 100px 100%; 
-}
+    background-size: auto 100%; 
+  }
 }
 </style>
