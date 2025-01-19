@@ -22,23 +22,28 @@ export function getToken(): DataInfo<number> {
     : storageSession().getItem(sessionKey);
 }
 
+// 定义 setSessionKey 函数
+export function setSessionKey(username: string, role: number) {
+  // 更新用户的 store 数据
+  useUserStoreHook().SET_USERNAME(username);
+  useUserStoreHook().SET_ROLE(role);
+
+  // 存储会话信息
+  storageSession().setItem(
+    sessionKey,
+    JSON.stringify({
+      username,
+      role
+    })
+  );
+}
+
 /**
  * 设置token
  */
+// 定义 setToken 函数
 export function setToken(data: DataInfo<string>) {
   const { token } = data;
-
-  function setSessionKey(username: string, role: number) {
-    useUserStoreHook().SET_USERNAME(username);
-    useUserStoreHook().SET_ROLE(role);
-    storageSession().setItem(
-      sessionKey,
-      JSON.stringify({
-        username,
-        role
-      })
-    );
-  }
 
   Cookies.set(TokenKey, JSON.stringify({ token }));
 
@@ -48,7 +53,7 @@ export function setToken(data: DataInfo<string>) {
   } else {
     const username =
       storageSession().getItem<DataInfo<number>>(sessionKey)?.username ?? "";
-    const role = storageSession().getItem<DataInfo<number>>(sessionKey)?.role;
+    const role = storageSession().getItem<DataInfo<number>>(sessionKey)?.role ?? 2;
     setSessionKey(username, role);
   }
 }

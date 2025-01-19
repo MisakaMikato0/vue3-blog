@@ -85,12 +85,12 @@ const operate = (op, val) => {
   </div> -->
   <div class="personal-link flex_r_around">
     <i
-      class="iconfont icon-bilibili-line to_pointer"
-      @click="operate('openLink', configDetail.bilibili_link)"
+      class="iconfont icon-houduankaifa to_pointer"
+      @click="operate('openLink', configDetail.github_link)"
     ></i>
     <i
-      class="iconfont icon-paper to_pointer"
-      @click="operate('openLink', configDetail.github_link)"
+      class="iconfont icon-bilibili-line to_pointer"
+      @click="operate('openLink', configDetail.bilibili_link)"
     ></i>
 
     <el-popover placement="top" trigger="hover">

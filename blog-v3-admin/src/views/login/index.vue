@@ -19,7 +19,7 @@ import Lock from "@iconify-icons/ri/lock-fill";
 import User from "@iconify-icons/ri/user-3-fill";
 
 import { initRouter } from "@/router/utils";
-
+import {setSessionKey } from '@/utils/auth'
 type RuleFormType = {
   username?: string;
   password?: string;
@@ -58,12 +58,20 @@ const onLogin = async (formEl: FormInstance | undefined) => {
       useUserStoreHook()
         .loginByUsername(ruleForm)
         .then(res => {
-          if (res.code == 0) {
-            initRouter().then(() => {
-              router.push("/");
-              message("登录成功", { type: "success" });
-            });
+          if(res?.result?.role == 1) {
+            if (res.code == 0) {
+              initRouter().then(() => {
+                router.push("/");
+                message("登录成功", { type: "success" });
+              });
+            }
+          }else {
+            setSessionKey(res.result.username,res.result.role)
+            message("你不是管理员喵~，请联系站长申请！", { type: "error" });
+            loading.value = false;
+
           }
+          
         });
     } else {
       loading.value = false;

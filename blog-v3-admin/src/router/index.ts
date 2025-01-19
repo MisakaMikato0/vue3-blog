@@ -95,18 +95,21 @@ export function resetRouter() {
 const whiteList = ["/login", "/register"];
 
 router.beforeEach((to: toRouteType, _from, next) => {
+
   if (!to.matched.length) {
     next("/error/404");
   } else {
+
     if (to.meta?.keepAlive) {
       const newMatched = to.matched;
       handleAliveRoute(newMatched, "add");
       // 页面整体刷新和点击标签页刷新
       if (_from.name === undefined || _from.name === "Redirect") {
         handleAliveRoute(newMatched);
+
       }
     }
-    const userInfo = storageSession().getItem<DataInfo<number>>(sessionKey);
+    const userInfo = JSON.parse(storageSession().getItem(sessionKey));
     NProgress.start();
     const externalLink = isUrl(to?.name as string);
     if (!externalLink) {
@@ -117,9 +120,23 @@ router.beforeEach((to: toRouteType, _from, next) => {
         else document.title = item.meta.title as string;
       });
     }
+
     if (userInfo) {
+
+      if (userInfo.role != 1) {
+
+        // 用户已登录但权限不足，停留在登录页面
+        if (to.path === "/login") {
+          next(); // 继续停留在登录页
+        } else {
+          next({ path: "/login" }); // 重定向到登录页
+        }
+        NProgress.done();
+        return;
+      }
       // 无权限跳转403页面
       if (to.meta?.role) {
+
         next({ path: "/error/403" });
       }
       if (_from?.name) {
