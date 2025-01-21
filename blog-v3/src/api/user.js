@@ -53,6 +53,8 @@ export const imgUpload = async (data) => {
   const formData = new FormData();
   formData.append("file", res);
   const userStore = user();
+  console.log(res, '这是文件');
+
   return http.post("api/upload/img", formData, {
     headers: {
       "Content-Type": "multipart/form-data",

@@ -35,6 +35,7 @@
     "request": "^2.88.2",
     "sequelize": "^6.29.0",
     "swagger-jsdoc": "^6.1.0",
+    "upyun": "^3.4.6",
     "ws": "^8.17.0",
     "xz-ipnet": "^1.0.2"
   },

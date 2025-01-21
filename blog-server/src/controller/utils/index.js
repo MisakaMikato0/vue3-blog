@@ -8,12 +8,14 @@ const { updateConfig, getConfig, addView } = require("../../service/config/index
 const fs = require("fs");
 const { upToQiniu, deleteImgs } = require("../../utils/qiniuUpload");
 const { minioUpload, deleteMinioImgs } = require("../../utils/minioUpload");
-
+const { uploadToUpyun, deleteFromUpyun } = require('../../utils/upyunUpload')
 const { UPLOADTYPE, BASEURL } = require("../../config/config.default");
 const { isValidUrl } = require("../../utils/tool");
 class UtilsController {
+
   // 图片上传
   async upload(ctx) {
+
     const { file } = ctx.request.files || {};
     if (!file || !file.filepath) {
       ctx.body = result("文件不存在或无效", null, 400);
@@ -54,9 +56,22 @@ class UtilsController {
         ctx.body = result("图片上传成功", {
           url: `${completeUrl}online/${path.basename(file.filepath)}`,
         });
+      } else if (UPLOADTYPE == "upyun") {
+        const localFile = fs.createReadStream(file.filepath); // 读取文件流
+        const key = `web-img/${file.name}`;
+        const res = await uploadToUpyun(localFile, key);
+
+        if (res) {
+          ctx.body = result("图片上传成功", {
+            url: `${completeUrl}${key}`,
+          });
+        } else {
+          throw new Error("又拍云上传失败");
+        }
       } else {
         ctx.body = result("未知的上传类型", null, 400);
       }
+
     } catch (err) {
       ctx.app.emit("error", throwError(errorCodeUpload, err.message));
     }
@@ -165,7 +180,32 @@ class UtilsController {
           await deleteMinioImgs([config.ali_pay.split("/").pop()]);
         }
       }
-
+      if (UPLOADTYPE == "upyun") {
+        if (avatar_bg && config.avatar_bg && avatar_bg != config.avatar_bg) {
+          await deleteFromUpyun([config.avatar_bg.split("/").pop()]);
+        }
+        if (blog_avatar && config.blog_avatar && blog_avatar != config.blog_avatar) {
+          await deleteFromUpyun([config.blog_avatar.split("/").pop()]);
+        }
+        if (qq_link && config.qq_link && qq_link != config.qq_link) {
+          await deleteFromUpyun([config.qq_link.split("/").pop()]);
+        }
+        if (we_chat_link && config.we_chat_link && we_chat_link != config.we_chat_link) {
+          await deleteFromUpyun([config.we_chat_link.split("/").pop()]);
+        }
+        if (we_chat_group && config.we_chat_group && we_chat_group != config.we_chat_group) {
+          await deleteFromUpyun([config.we_chat_group.split("/").pop()]);
+        }
+        if (qq_group && config.qq_group && qq_group != config.qq_group) {
+          await deleteFromUpyun([config.qq_group.split("/").pop()]);
+        }
+        if (we_chat_pay && config.we_chat_pay && we_chat_pay != config.we_chat_pay) {
+          await deleteFromUpyun([config.we_chat_pay.split("/").pop()]);
+        }
+        if (ali_pay && config.ali_pay && ali_pay != config.ali_pay) {
+          await deleteFromUpyun([config.ali_pay.split("/").pop()]);
+        }
+      }
       let res = await updateConfig(ctx.request.body);
 
       ctx.body = result("修改网站设置成功", res);

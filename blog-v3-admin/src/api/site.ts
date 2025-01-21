@@ -49,7 +49,7 @@ export const imgUpload = async data => {
   } else {
     res = data.raw;
   }
-
+  
   const formData = new FormData();
   formData.append("file", res);
   const token = getToken();

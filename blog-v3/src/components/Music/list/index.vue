@@ -11,7 +11,7 @@ import {
   nextTick,
 } from "vue";
 
-import { reqToplist, reqTopDetaliList } from "@/api/music";
+import { reqToplist, reqTopDetaliList,reqLoginStatus,reqQrcodeKey,reqQrcode,reqQrcodeStatus,reqUserToplist,reqLoginout } from "@/api/music";
 import { PLAYTYPE } from "../musicTool";
 import { ElNotification } from "element-plus";
 import SearchList from "./components/search-list.vue";
@@ -27,7 +27,21 @@ const topList = ref([]);
 const currentMusicList = ref([]); // 当前音乐播放列表
 
 const currentTop = ref(null);
-
+const isLogin = ref(false)
+const loginForm = reactive({
+  phone: "",
+  captcha: "",
+});
+const loginRules = {
+  username: [{ required: true, message: "请输入手机号", trigger: "blur" }],
+  password: [{ required: true, message: "请输入验证码", trigger: "blur" }],
+};
+const qrTimer = ref('')
+const qrCode = ref('')
+const qrView = ref(false)
+const qrCodeKey = ref('')
+const musicLoginStatus = ref(false)
+const userId = ref('')
 let observe, box;
 
 defineComponent({
@@ -46,6 +60,36 @@ const musicCategoryLoading = ref(false); // 音乐分类加载
 const musicListLoading = ref(false); // 音乐列表加载
 const musicScrollLoading = ref(false); // 音乐滚动加载
 
+// 获取登录状态
+const reqLogin = async () => {
+  musicCategoryLoading.value = true;
+  const res = await reqLoginStatus()
+    console.log(res.data.account,'登录状态');
+    if(res) {
+      if(!res.data.account.anonimousUser) {
+        musicLoginStatus.value = false
+        qrView.value = false
+        isLogin.value = false
+        // 用户歌单
+        userId.value = res.data.account.id
+        await getUserTopList(res.data.account.id)
+      }else {
+        await reqMusicList()
+        musicLoginStatus.value = true
+      }
+    }
+    
+}
+const getUserTopList = async (id) => {
+  musicCategoryLoading.value = true;
+  const userTop = await reqUserToplist(id)
+        if(userTop) {
+          musicCategoryLoading.value = false;
+          topList.value = userTop.playlist;
+          currentTop.value = topList.value[0];
+          await reqTopMusicList(topList.value[0].id);
+        }
+}
 //  获取音乐排行榜
 const reqMusicList = async () => {
   musicCategoryLoading.value = true;
@@ -165,6 +209,75 @@ const loadMore = () => {
   reqTopMusicList();
 };
 
+
+   // 二维码
+
+const getQrcode = async () => {
+  const res = await reqQrcodeKey()
+    if(res?.code == 200) {
+        qrCodeKey.value = res.data.unikey
+        const qr = await reqQrcode(res.data.unikey)
+        if(qr) {
+          qrCode.value = qr.data.qrimg
+          qrView.value = true
+          isLogin.value = true
+        }
+    }
+}
+// 扫码
+const viewForm = async() => {
+  isLogin.value = true
+   await getQrcode()
+    qrTimer.value = setInterval(async () => {
+
+      const statusRes = await qrChange();
+      console.log(statusRes, 'statusRes');
+
+      if (statusRes.code == 800) {
+        ElNotification({
+          offset: 60,
+          title: "提示",
+          duration: 1000,
+          message: h("div", { style: " font-weight: 600;" }, "二维码已过期,请重新获取"),
+        });
+        clearInterval(qrTimer.value); // 确保这里清理定时器
+      } else if (statusRes.code == 803) {
+        ElNotification({
+          offset: 60,
+          title: "提示",
+          duration: 1000,
+          message: h("div", { style: "color: #7ec050; font-weight: 600;" }, "登陆网易云成功"),
+        });
+        clearInterval(qrTimer.value); // 确保这里也清理定时器
+        
+        await reqLogin()
+      }
+    }, 3000);
+  }
+  const qrChange = async ()  => {
+    const res = reqQrcodeStatus(qrCodeKey.value)
+    if(res) {
+      console.log(res,'扫码登陆状态');
+      return res
+    }
+  }
+  // 退出登陆
+  const userLogout = async() => {
+      const res = await reqLoginout()
+      if(res) {
+        musicLoginStatus.value = true
+        await reqMusicList()
+        ElNotification({
+            offset: 60,
+            title: "提示",
+            duration: 1000,
+            message: h("div", { style: "color: #7ec050; font-weight: 600;" }, "网易云登出成功"),
+          })
+        userId.value = ''
+      }
+  }
+
+
 watch(
   () => getCustomerMusicList.value.length,
   () => {
@@ -173,7 +286,8 @@ watch(
 );
 
 onMounted(async () => {
-  await reqMusicList();
+  // await reqMusicList();
+  await reqLogin()
 });
 
 onBeforeUnmount(() => {
@@ -225,6 +339,12 @@ onBeforeUnmount(() => {
             </template>
             <SearchList />
           </el-popover>
+          <div class="music-login" v-if="musicLoginStatus">
+            <i class="iconfont icon-timerauto" @click="viewForm" v-tooltip="登陆"></i>
+          </div>
+          <div class="music-login logout" v-else>
+            <i class="iconfont icon-tuichudenglu" @click="userLogout" v-tooltip="登出"></i>
+          </div>
         </div>
         <el-row style="width: 100%">
           <el-col :span="24" class="header">
@@ -280,6 +400,10 @@ onBeforeUnmount(() => {
     </div>
     <!-- 歌词面板 -->
     <LyricBoard />
+    <div class="login-form" v-if="isLogin">
+      <span>扫码登陆</span>
+      <el-image :src="qrCode" v-show="qrView"></el-image>
+    </div>
   </div>
 </template>
 
@@ -296,7 +420,60 @@ onBeforeUnmount(() => {
     padding-left: 5px;
     max-width: 40%;
   }
-
+  .music-login {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .login-form {
+    width: 300px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 添加模糊效果 */
+    -webkit-backdrop-filter: blur(10px); /* 为兼容 WebKit 内核浏览器 */
+    border-radius: 8px; /* 可选：添加圆角 */
+    padding: 20px; /* 可选：添加内边距 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 可选：添加阴影效果 */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    .captcha-input {
+      width: 50%;
+    }
+    .code-btn {
+      width: 40%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -2px;
+      z-index: 222;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 8px;
+      border: none;
+      background-image: var(--button-linear-gradient);
+      cursor: pointer;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        border-radius: 8px;
+        z-index: -1;
+        transition: opacity 0.6s ease-in-out;
+        background-image: var(--button-linear-gradient-h);
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+  }
   &__left {
     width: 50%;
     height: 100%;
