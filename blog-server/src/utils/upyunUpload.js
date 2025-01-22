@@ -4,32 +4,42 @@ const Upyun = require("upyun");
 
 const { SERVICE_NAME, OPERATOR_NAME, OPERATOR_PASSWORD } = require("../config/config.default");
 
+
 // 初始化又拍云服务
 const service = new Upyun.Service(SERVICE_NAME, OPERATOR_NAME, OPERATOR_PASSWORD);
 const client = new Upyun.Client(service);
 
 // 上传文件到又拍云
-const uploadToUpyun = (localFile, remotePath) => {
-    // const localFile = fs.createReadStream(filePath); // 读取文件流
+
+const uploadToUpyun = async (localFile, remotePath, mimetype) => {
+
     return new Promise((resolve, reject) => {
         client.putFile(remotePath, localFile, {
-            "Content-Type": "application/octet-stream", // 可根据需求修改
+            "Content-Type": mimetype, // 动态设置 Content-Type
         })
             .then((result) => {
                 resolve(result);
+                console.log(result, 'console.log(result); console.log(result); ');
             })
             .catch((err) => {
                 reject(err);
+                console.log(err, 'errerrerr');
             });
     });
 };
 
+
+
+
 // 批量删除文件
 const deleteFromUpyun = (filePaths) => {
+    console.log(filePaths, 'filePathsfilePathsfilePaths删除');
+
     const promises = filePaths.map((filePath) => {
-        return client.deleteFile(filePath).catch((err) => {
+        const path = `web-img/${filePath}`
+        return client.deleteFile(path).catch((err) => {
             // 捕获单个文件删除失败的错误
-            console.error(`删除文件失败: ${filePath}`, err);
+            console.error(`删除文件失败: ${path}`, err);
             return null; // 返回 null 表示删除失败
         });
     });

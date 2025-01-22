@@ -6,6 +6,7 @@ const { UPLOADTYPE } = require("../../config/config.default");
 const { deleteImgs } = require("../../utils/qiniuUpload");
 const { deleteOnlineImgs } = require("../../controller/utils/index");
 const { deleteMinioImgs } = require("../../utils/minioUpload");
+const { deleteFromUpyun } = require('../../utils/upyunUpload')
 
 class PhotoAlbumController {
   /**
@@ -44,6 +45,9 @@ class PhotoAlbumController {
       if (UPLOADTYPE == "minio") {
         await deleteMinioImgs([one.album_cover.split("/").pop()]);
       }
+      if (UPLOADTYPE == "upyun") {
+        await deleteFromUpyun([one.album_cover.split("/").pop()]);
+      }
 
       const res = await deleteAlbum(id);
 
@@ -77,6 +81,9 @@ class PhotoAlbumController {
       }
       if (UPLOADTYPE == "minio") {
         await deleteMinioImgs([one.album_cover.split("/").pop()]);
+      }
+      if (UPLOADTYPE == "upyun") {
+        await deleteFromUpyun([one.album_cover.split("/").pop()]);
       }
 
       const res = await updateAlbum(ctx.request.body);

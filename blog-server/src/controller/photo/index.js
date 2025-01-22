@@ -6,6 +6,7 @@ const { UPLOADTYPE } = require("../../config/config.default");
 const { deleteImgs } = require("../../utils/qiniuUpload");
 const { deleteOnlineImgs } = require("../utils/index");
 const { deleteMinioImgs } = require("../../utils/minioUpload");
+const { deleteFromUpyun } = require('../../utils/upyunUpload')
 
 class PhotoController {
   /**
@@ -43,7 +44,9 @@ class PhotoController {
       if (UPLOADTYPE == "minio" && type == 2) {
         deleteMinioImgs(keys);
       }
-
+      if (UPLOADTYPE == "upyun" && type == 2) {
+        deleteFromUpyun(keys);
+      }
       ctx.body = result("删除图片成功", res);
     } catch (err) {
       console.error(err);

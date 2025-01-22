@@ -17,6 +17,7 @@ class UtilsController {
   async upload(ctx) {
 
     const { file } = ctx.request.files || {};
+
     if (!file || !file.filepath) {
       ctx.body = result("文件不存在或无效", null, 400);
       return;
@@ -57,10 +58,10 @@ class UtilsController {
           url: `${completeUrl}online/${path.basename(file.filepath)}`,
         });
       } else if (UPLOADTYPE == "upyun") {
-        const localFile = fs.createReadStream(file.filepath); // 读取文件流
-        const key = `web-img/${file.name}`;
-        const res = await uploadToUpyun(localFile, key);
-
+        // 读取文件流
+        const fileBuffer = fs.readFileSync(file.filepath);
+        const key = `web-img/${file.newFilename}`;
+        const res = await uploadToUpyun(fileBuffer, key, file.mimetype);
         if (res) {
           ctx.body = result("图片上传成功", {
             url: `${completeUrl}${key}`,
