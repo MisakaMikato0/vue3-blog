@@ -100,7 +100,7 @@ class MessageController {
   // 分页获取留言
   async getMessageList(ctx) {
     try {
-      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
+      let ip = ctx.get("cdn-ip") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ip = ip.split(":").pop();
       const res = await getMessageList({ ...ctx.request.body, ip });
 

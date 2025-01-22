@@ -16,7 +16,7 @@ class CommentController {
    */
   async addComment(ctx) {
     try {
-      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
+      let ip = ctx.get("cdn-ip") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ctx.request.body.content = await filterSensitive(ctx.request.body.content);
 
       let res = await createComment({ ...ctx.request.body, ip: ip.split(":").pop() });
@@ -46,7 +46,7 @@ class CommentController {
    */
   async applyComment(ctx) {
     try {
-      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
+      let ip = ctx.get("cdn-ip") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
 
       ctx.request.body.content = await filterSensitive(ctx.request.body.content);
 
@@ -136,7 +136,7 @@ class CommentController {
    */
   async frontGetParentComment(ctx) {
     try {
-      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
+      let ip = ctx.get("cdn-ip") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ip = ip.split(":").pop();
       const { current, size, type, for_id, user_id, order } = ctx.request.body;
       let res = await frontGetParentComment({ current, size, type, for_id, user_id, order, ip });
@@ -152,7 +152,7 @@ class CommentController {
    */
   async frontGetChildrenComment(ctx) {
     try {
-      let ip = ctx.get("CF-Connecting-IP") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
+      let ip = ctx.get("cdn-ip") || ctx.get("X-Real-IP") || ctx.get("X-Forwarded-For")?.split(",")[0].trim() || ctx.ip;
       ip = ip.split(":").pop();
       const { current, size, type, for_id, user_id, parent_id } = ctx.request.body;
       let res = await frontGetChildrenComment({ current, size, type, for_id, user_id, parent_id, ip });
