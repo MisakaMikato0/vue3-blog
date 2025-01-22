@@ -9,7 +9,7 @@
     <a class="footer-color change-color mt-[5px]" href="https://beian.miit.gov.cn/" target="_blank"
       >滇ICP备2025049803号</a
     >
-    <!-- <div class="footer-color mt-[5px] flex justify-center flex-wrap">
+    <div class="footer-color mt-[5px] flex justify-center flex-wrap">
       <a
         class="p-[3px]"
         href="https://www.aliyun.com/?spm=5176.28055625.J_3207526240.1.6a27154aw7v5VK"
@@ -24,17 +24,15 @@
           src="https://img.shields.io/badge/MdEditorV3-MD%E7%BC%96%E8%BE%91%E5%99%A8-159957"
           alt=""
       /></a>
-      <a class="p-[3px]" href="https://butterfly.js.org/" target="_blank">
+      <!-- <a class="p-[3px]" href="https://butterfly.js.org/" target="_blank">
         <img src="https://img.shields.io/badge/HEXO-BUTTERFLY-blue" alt="" />
-      </a>
-      <a class="p-[3px]" href="https://min.io/" target="_blank">
-        <img
-          src="https://img.shields.io/badge/minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F-purple
-"
-          alt=""
-        />
-      </a>
-    </div> -->
+      </a> -->
+        <a class="p-[3px] upyun-logo" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">
+         本网站由
+          <img src="https://i.miji.bid/2025/01/22/ce3e4ab23118715b56782b6f21dfba93.png" alt="ce3e4ab23118715b56782b6f21dfba93.png" border="0">
+          提供CDN加速/云存储服务
+        </a>
+    </div>
   </div>
 </template>
 
@@ -47,6 +45,7 @@ const route = useRoute();
 .footer-color {
   color: var(--font-color);
   text-align: center;
+  align-items: center;
 }
 
 .change-color {
@@ -57,6 +56,22 @@ const route = useRoute();
     color: var(--global-black);
   }
 }
+  .upyun-logo {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    height: 30px;
+    div {
+      flex: 1;
+    }
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      margin: 0 5px;
+    }
+  }
+
 @keyframes my-face {
   2%,
   24%,

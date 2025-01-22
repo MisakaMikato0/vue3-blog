@@ -128,9 +128,16 @@ onMounted(() => {
       </el-col>
     </el-row>
     <div class="filings">
-      <a class="change-color" href="http://beian.miit.gov.cn/" target="_blank"
-        >蜀ICP备2023007772号</a
+      <a class="change-color" href="https://beian.miit.gov.cn/" target="_blank"
+        >滇ICP备2025049803号</a
       >
+    </div>
+    <div class="footer-cdn">
+      <a class="p-[3px] upyun-logo" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">
+         本网站由
+          <img src="https://i.miji.bid/2025/01/22/ce3e4ab23118715b56782b6f21dfba93.png" alt="ce3e4ab23118715b56782b6f21dfba93.png" border="0">
+          提供CDN加速/云存储服务
+        </a>
     </div>
   </el-card>
 </template>
@@ -151,7 +158,28 @@ onMounted(() => {
     }
   }
 }
+.footer-cdn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .upyun-logo {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    height: 30px;
+    font-size: 12px;
 
+    div {
+      flex: 1;
+    }
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      margin: 0 5px;
+    }
+  }
+}
 .svg-fill {
   transition: all 0.3s;
 }
