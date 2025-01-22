@@ -27,9 +27,6 @@ type RuleFormType = {
 const router = useRouter();
 const loading = ref(false);
 const ruleFormRef = ref<FormInstance>();
-const iconBaseUrl = 'http://img.hakugyokurou.fun/web-icon/'
-const avatar = iconBaseUrl + 'blogAvatar.png'
-const illustration = iconBaseUrl + 'illustration.png'
 const { initStorage } = useLayout();
 initStorage();
 
@@ -130,11 +127,11 @@ onBeforeUnmount(() => {
     </div>
     <div class="login-container">
       <div class="img">
-        <img :src="illustration" alt="" class="illustration">
+        <img src="https://i.miji.bid/2025/01/22/891a8f38e495eb809f203294e490fa2d.png" alt="" class="illustration">
       </div>
       <div class="login-box">
         <div class="login-form">
-          <img :src="avatar" alt="" class="avatar">
+          <img src="https://i.miji.bid/2025/01/22/d453d31b7a896027882662babdaa193a.png" alt="" class="avatar">
           <Motion>
             <h2 class="outline-none">{{ title }}</h2>
           </Motion>
@@ -204,6 +201,13 @@ onBeforeUnmount(() => {
         >滇ICP备2025049803号</a
       >
     </div>
+    <div class="footer-cdn">
+      <a class="p-[3px] upyun-logo" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank">
+         本网站由
+          <img src="https://i.miji.bid/2025/01/22/ce3e4ab23118715b56782b6f21dfba93.png" alt="ce3e4ab23118715b56782b6f21dfba93.png" border="0">
+          提供CDN加速/云存储服务
+        </a>
+    </div>
   </div>
 </template>
 
@@ -235,7 +239,7 @@ onBeforeUnmount(() => {
 
 .filings {
   position: absolute;
-  bottom: 5px;
+  bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -248,6 +252,28 @@ onBeforeUnmount(() => {
 
     &:hover {
       color: #000;
+    }
+  }
+}
+.footer-cdn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .upyun-logo {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    height: 30px;
+    font-size: 12px;
+
+    div {
+      flex: 1;
+    }
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      margin: 0 5px;
     }
   }
 }

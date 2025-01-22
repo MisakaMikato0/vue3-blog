@@ -14,7 +14,6 @@ import Waves from "@/components/WelcomeComps/waves.vue";
 const staticStore = staticData();
 const { codeTheme, previewTheme, getPageHeaderList } = storeToRefs(staticStore);
 const route = useRoute();
-const baseUrl = 'http://img.hakugyokurou.fun/home-bg/';
 
 const props = defineProps({
   loading: {
@@ -67,8 +66,7 @@ const getBgCover = computed(() => {
   const bgList = getPageHeaderList.value;
   // 做一个根据路由来判断判断页面背景图片
   let url;
-  // let myUrl = "http://img.www.hakugyokurou.fun/FvmVKfygxBKoJbFVXJwzjgAASL9S";
-  let myUrl = baseUrl + 'default.png';
+  let myUrl = 'https://i.miji.bid/2025/01/22/a938645a200556990c6e34315bc8b7ff.jpeg';
   if (route.path == "/article") {
     url = props.article.article_cover || myUrl;
   } else if (props.bgUrl) {

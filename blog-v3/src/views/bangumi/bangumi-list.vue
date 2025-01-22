@@ -264,9 +264,6 @@ onMounted(() => {
           font-size: 1rem;
           color: #333;
         }
-        .el-progress-bar__inner {
-          text-align: center;
-        }
       }
     }
   }
